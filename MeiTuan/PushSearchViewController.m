@@ -55,14 +55,15 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger current;
+    
     int contentOffsetX = self.scrollView.contentOffset.x;
     int page = contentOffsetX / CGRectGetWidth(self.scrollView.bounds);
     
-    if (page == 2) {
+    if (page == 1) {
         current = _currentPage + 1;
         self.pageControl.currentPage = current;
     }
-    else if (page == 1) {
+    else if (page == 0) {
         current = _currentPage - 1;
         self.pageControl.currentPage = current;
     }
