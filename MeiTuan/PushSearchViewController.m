@@ -73,21 +73,27 @@
 
 - (void)installButtons
 {
-    int i;
+    NSInteger x_space;
+    x_space = 10;
     
-    for (i = 0; i <= 2; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20, 20 + 35 * i, 55, 20)];
-        [button setBackgroundColor:[UIColor whiteColor]];
-        [self.scrollView addSubview:button];
-    }
-    if (i == 2) {
-        for (int a = 0; a <= 2; a++) {
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(70, 20 + 35 * a, 55, 20)];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i + i * x_space, 40, 55, 15)];
             [button setBackgroundColor:[UIColor whiteColor]];
             [self.scrollView addSubview:button];
+            if (i == 1) {
+                UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i + i * x_space ,70 , 55, 15)];
+                [button setBackgroundColor:[UIColor whiteColor]];
+                [self.scrollView addSubview:button];
+            }
+            if (i == 2) {
+                UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i + i * x_space, 100, 55, 15)];
+                [button setBackgroundColor:[UIColor whiteColor]];
+                [self.scrollView addSubview:button];
+            }
+ 
         }
     }
-    
 
 }
 
