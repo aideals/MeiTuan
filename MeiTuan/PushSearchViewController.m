@@ -50,6 +50,7 @@
     self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.1 alpha:0.6];
     [self.view addSubview:self.pageControl];
     
+    [self installButtons];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -70,6 +71,26 @@
     
 }
 
+- (void)installButtons
+{
+    int i;
+    
+    for (i = 0; i <= 2; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20, 20 + 35 * i, 55, 20)];
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [self.scrollView addSubview:button];
+    }
+    if (i == 2) {
+        for (int a = 0; a <= 2; a++) {
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(70, 20 + 35 * a, 55, 20)];
+            [button setBackgroundColor:[UIColor whiteColor]];
+            [self.scrollView addSubview:button];
+        }
+    }
+    
+
+}
+
 - (IBAction)countChange:(id)sender
 {
     NSInteger page = self.pageControl.currentPage;
@@ -80,5 +101,9 @@
     
     [self.scrollView scrollRectToVisible:bounds animated:YES];
 }
+
+
+
+
 
 @end
