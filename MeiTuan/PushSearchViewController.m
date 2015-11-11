@@ -33,7 +33,7 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 87, self.view.bounds.size.width, 130)];
     [self.scrollView setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width * 2, self.scrollView.frame.size.height)];
-    [self.scrollView setContentOffset:CGPointMake((CGRectGetWidth(self.scrollView.frame)), 0)];
+    [self.scrollView setContentOffset:CGPointMake(0,0)];
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.delegate = self;
