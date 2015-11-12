@@ -81,16 +81,19 @@
             if (i == 0) {
                 UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * j + j * x_space + 8, 20, 85, 20)];
                 [button setBackgroundColor:[UIColor whiteColor]];
+                button.tag = j;
                 [self.scrollView addSubview:button];
             }
             if (i == 1) {
                 UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * j + j * x_space + 8, 55, 85, 20)];
                 [button setBackgroundColor:[UIColor whiteColor]];
+                button.tag = j + 6;
                 [self.scrollView addSubview:button];
             }
             if (i == 2) {
                 UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * j + j * x_space + 8, 85, 85, 20)];
                 [button setBackgroundColor:[UIColor whiteColor]];
+                button.tag = j + 12;
                 [self.scrollView addSubview:button];
             }
  
