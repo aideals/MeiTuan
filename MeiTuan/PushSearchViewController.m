@@ -73,6 +73,8 @@
 
 - (void)installButtons
 {
+    NSArray *titleArr = [[NSArray alloc] initWithObjects:@"聚隆德果木烤鸭", @"玲珑足浴", @"素百味自助餐", @"欢乐牧场火锅" @"黄鹤楼",@"小肥羊",nil];
+    
     NSInteger x_space;
     x_space = 70;
 
@@ -81,7 +83,10 @@
             if (i == 0) {
                 UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * j + j * x_space + 8, 20, 85, 20)];
                 [button setBackgroundColor:[UIColor whiteColor]];
-                button.tag = j;
+                for (NSString *element in titleArr) {
+                    [button setTitle:element forState:UIControlStateNormal];
+                }
+                
                 [self.scrollView addSubview:button];
             }
             if (i == 1) {
@@ -112,9 +117,6 @@
     
     [self.scrollView scrollRectToVisible:bounds animated:YES];
 }
-
-
-
 
 
 @end
