@@ -83,11 +83,11 @@
         for (int j = 0; j < 6; j++) {
            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x_space + (85 + x_space) * j, y_space + (20 + y_space) * i, 85, 20)];
            [button setBackgroundColor:[UIColor whiteColor]];
-            [self.scrollView addSubview:button];
+            button.tag = j + 6 * i;
+           [self.scrollView addSubview:button];
                 
         }
     }
-
 }
 
 - (IBAction)countChange:(id)sender
