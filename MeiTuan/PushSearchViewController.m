@@ -79,12 +79,15 @@
     x_space = 20;
     y_space = 12;
     
+    NSMutableArray *buttons = [[NSMutableArray alloc] init];
+    
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 6; j++) {
            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x_space + (85 + x_space) * j, y_space + (20 + y_space) * i, 85, 20)];
            [button setBackgroundColor:[UIColor whiteColor]];
             button.tag = j + 6 * i;
-           [self.scrollView addSubview:button];
+            [buttons addObject:button];
+            [self.scrollView addSubview:button];
                 
         }
     }
