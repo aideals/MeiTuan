@@ -79,12 +79,14 @@
     x_space = 20;
     y_space = 12;
     
-     for (int i = 0; i < 3; i++) {
+    NSArray *stringArr = [[NSArray alloc] initWithObjects:@"小肥羊",@"肯德基",@"德克士",@"全家来",@"华莱士",@"上岛",@"沙县小吃",@"欢乐牧场自主火锅",@"黄鹤楼",@"佳客来",@"董小姐的面",@"爱拉屋",@"玲珑足浴",@"素百味自助餐",@"咖啡之屋",@"口水鸡排",@"曹打胖擀面皮",@"去蜀火锅", nil];
+    
+    for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 6; j++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x_space + (85 + x_space) * j, y_space + (20 + y_space) * i, 85, 20)];
-            [button setBackgroundColor:[UIColor whiteColor]];
-            button.tag = (NSInteger)[self.scrollView viewWithTag:j + 6 * i];
-            [button setTitle:@"ABC" forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor blueColor]];
+            button.tag = j + 6 * i + 10;
+            [button setTitle:@[stringArr] forState:UIControlStateNormal];
             [self.scrollView addSubview:button];
         }
     }
