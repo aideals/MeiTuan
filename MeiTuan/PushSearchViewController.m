@@ -84,8 +84,9 @@
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x_space + (85 + x_space) * j, y_space + (20 + y_space) * i, 85, 20)];
             [button setBackgroundColor:[UIColor whiteColor]];
             button.tag = j + 6 * i;
+            [self.view viewWithTag:j + 6 * i];
+            [button setTitle:@"ABC" forState:UIControlStateNormal];
             [self.scrollView addSubview:button];
-            [self.view viewWithTag:0];
         }
     }
 }
