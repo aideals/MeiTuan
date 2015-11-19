@@ -7,6 +7,7 @@
 //
 
 #import "PushSearchViewController.h"
+#import "TableViewController.h"
 
 @interface PushSearchViewController ()<UISearchBarDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong) UIPageControl *pageControl;
@@ -87,7 +88,7 @@
             [button setBackgroundColor:[UIColor whiteColor]];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:13.0];
-            [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
+            [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchDown];
             button.tag = j + 6 * i + 10;
             NSString *title = [stringArr objectAtIndex:j + 6 * i];
             [button setTitle:title forState:UIControlStateNormal];
@@ -98,7 +99,8 @@
 
 - (IBAction)changeView:(id)sender
 {
-    
+    TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:tableViewController animated:YES completion:nil];
 }
 
 

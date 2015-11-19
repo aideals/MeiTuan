@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0687D4DA1BFD768E007CCC08 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0687D4D91BFD768E007CCC08 /* TableViewController.m */; };
 		06A37D921BEB3C3600A084D1 /* PushSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */; };
 		06D675AE1BE7458E00296246 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D675AD1BE7458E00296246 /* Foundation.framework */; };
 		06D675B01BE7458E00296246 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D675AF1BE7458E00296246 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0687D4D81BFD768E007CCC08 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		0687D4D91BFD768E007CCC08 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		06A37D901BEB3C3600A084D1 /* PushSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushSearchViewController.h; sourceTree = "<group>"; };
 		06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushSearchViewController.m; sourceTree = "<group>"; };
 		06D675AA1BE7458E00296246 /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +131,8 @@
 				06D675E31BE7530800296246 /* TuanGouViewController.m */,
 				06A37D901BEB3C3600A084D1 /* PushSearchViewController.h */,
 				06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */,
+				0687D4D81BFD768E007CCC08 /* TableViewController.h */,
+				0687D4D91BFD768E007CCC08 /* TableViewController.m */,
 				06D675E51BE7532700296246 /* ShangJiaViewController.h */,
 				06D675E61BE7532700296246 /* ShangJiaViewController.m */,
 				06D675E81BE7534500296246 /* UserViewController.h */,
@@ -273,6 +278,7 @@
 				06D675EA1BE7534500296246 /* UserViewController.m in Sources */,
 				06D675ED1BE7535900296246 /* MoreViewController.m in Sources */,
 				06D675E71BE7532700296246 /* ShangJiaViewController.m in Sources */,
+				0687D4DA1BFD768E007CCC08 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
