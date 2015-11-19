@@ -100,7 +100,10 @@
 - (IBAction)changeView:(id)sender
 {
     TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
-    [self presentViewController:tableViewController animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+    
 }
 
 - (IBAction)countChange:(id)sender

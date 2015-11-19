@@ -19,14 +19,12 @@
 {
     [super viewDidLoad];
 	
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(75, 13, 100.0, 10.0)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(45, 15, 100.0, 10.0)];
     searchBar.delegate = self;
-    searchBar.placeholder = @"button";
+    searchBar.placeholder = @"buttonValue";
     
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
-    
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     self.parentViewController.navigationItem.titleView = searchBar;
-    
 }
 
 
