@@ -103,9 +103,6 @@
     [self presentViewController:tableViewController animated:YES completion:nil];
 }
 
-
-
-
 - (IBAction)countChange:(id)sender
 {
     NSInteger page = self.pageControl.currentPage;
