@@ -84,13 +84,25 @@
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 6; j++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x_space + (85 + x_space) * j, y_space + (20 + y_space) * i, 85, 20)];
-            [button setBackgroundColor:[UIColor blueColor]];
+            [button setBackgroundColor:[UIColor whiteColor]];
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+            [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
             button.tag = j + 6 * i + 10;
-            [button setTitle:@[stringArr] forState:UIControlStateNormal];
+            NSString *title = [stringArr objectAtIndex:j + 6 * i];
+            [button setTitle:title forState:UIControlStateNormal];
             [self.scrollView addSubview:button];
         }
     }
 }
+
+- (IBAction)changeView:(id)sender
+{
+    
+}
+
+
+
 
 - (IBAction)countChange:(id)sender
 {
