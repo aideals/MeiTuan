@@ -24,7 +24,7 @@
     searchBar.placeholder = @"buttonValue";
     
     [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
-    self.parentViewController.navigationItem.titleView = searchBar;
+    self.navigationItem.titleView = searchBar;
     
 
 }
