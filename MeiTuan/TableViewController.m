@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "MapViewController.h"
 
 @interface TableViewController () <UISearchBarDelegate>
 
@@ -26,17 +27,17 @@
     [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     self.navigationItem.titleView = searchBar;
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"左按钮"
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"back"
                                                                    style:UIBarButtonItemStylePlain
                                                                    target:self
-                                                                  action:@selector(back)];
+                                                                  action:@selector(back:)];
 
     [self.navigationItem setLeftBarButtonItem:leftButton];
 
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"地图"
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"map"
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
-                                                                   action:@selector(map)];
+                                                                   action:@selector(map:)];
 
     [self.navigationItem setRightBarButtonItem:rightButton];
 }
@@ -46,6 +47,15 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)map:(id)sender
+{
+    MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mapViewController];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 
 
 @end

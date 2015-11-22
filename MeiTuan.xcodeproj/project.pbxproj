@@ -25,6 +25,7 @@
 		06D675E71BE7532700296246 /* ShangJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D675E61BE7532700296246 /* ShangJiaViewController.m */; };
 		06D675EA1BE7534500296246 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D675E91BE7534500296246 /* UserViewController.m */; };
 		06D675ED1BE7535900296246 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D675EC1BE7535900296246 /* MoreViewController.m */; };
+		06E96B451C01B06B00833657 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E96B441C01B06B00833657 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		06D675E91BE7534500296246 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		06D675EB1BE7535900296246 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		06D675EC1BE7535900296246 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		06E96B431C01B06B00833657 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		06E96B441C01B06B00833657 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */,
 				0687D4D81BFD768E007CCC08 /* TableViewController.h */,
 				0687D4D91BFD768E007CCC08 /* TableViewController.m */,
+				06E96B431C01B06B00833657 /* MapViewController.h */,
+				06E96B441C01B06B00833657 /* MapViewController.m */,
 				06D675E51BE7532700296246 /* ShangJiaViewController.h */,
 				06D675E61BE7532700296246 /* ShangJiaViewController.m */,
 				06D675E81BE7534500296246 /* UserViewController.h */,
@@ -274,6 +279,7 @@
 				06A37D921BEB3C3600A084D1 /* PushSearchViewController.m in Sources */,
 				06D675E41BE7530800296246 /* TuanGouViewController.m in Sources */,
 				06D675BE1BE7458E00296246 /* MeiTuanAppDelegate.m in Sources */,
+				06E96B451C01B06B00833657 /* MapViewController.m in Sources */,
 				06D675BA1BE7458E00296246 /* main.m in Sources */,
 				06D675EA1BE7534500296246 /* UserViewController.m in Sources */,
 				06D675ED1BE7535900296246 /* MoreViewController.m in Sources */,
