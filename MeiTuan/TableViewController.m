@@ -19,16 +19,33 @@
 {
     [super viewDidLoad];
 	
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(45, 15, 100.0, 10.0)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(45, 15, 85.0, 10.0)];
     searchBar.delegate = self;
     searchBar.placeholder = @"buttonValue";
     
     [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     self.navigationItem.titleView = searchBar;
     
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"左按钮"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                  action:@selector(back)];
 
+    [self.navigationItem setLeftBarButtonItem:leftButton];
+
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"地图"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                   action:@selector(map)];
+
+    [self.navigationItem setRightBarButtonItem:rightButton];
 }
 
+
+- (IBAction)back:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

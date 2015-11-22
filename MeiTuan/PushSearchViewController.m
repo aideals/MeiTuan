@@ -102,20 +102,14 @@
     TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
-    
-    
+    [self presentViewController:nav animated:YES completion:nil];
+
     [UIView beginAnimations:@"animation" context:nil];
     [UIView setAnimationDuration:1.0f];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:tableViewController.view cache:YES];
+    [UIView setAnimationTransition:UIViewContentModeLeft forView:self.view cache:YES];
     [UIView commitAnimations];
-
-    [self presentViewController:nav animated:YES completion:nil];
 }
-
-
-
-
 
 - (IBAction)countChange:(id)sender
 {
