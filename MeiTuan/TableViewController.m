@@ -28,7 +28,7 @@
     self.navigationItem.titleView = searchBar;
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"back"
-                                                                   style:UIBarButtonItemStylePlain
+                                                                   style:UIBarButtonItemStyleDone
                                                                    target:self
                                                                   action:@selector(back:)];
 
