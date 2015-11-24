@@ -13,6 +13,7 @@
 @property (nonatomic,strong) UIPageControl *pageControl;
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic) NSInteger currentPage;
+@property (nonatomic) NSInteger buttonTag;
 @end
 
 @implementation PushSearchViewController
@@ -92,6 +93,7 @@
             button.tag = j + 6 * i + 10;
             NSString *title = [stringArr objectAtIndex:j + 6 * i];
             [button setTitle:title forState:UIControlStateNormal];
+            self.buttonTag = j + 6 * i + 10;
             [self.scrollView addSubview:button];
         }
     }
@@ -104,11 +106,6 @@
     
     [self presentViewController:nav animated:YES completion:nil];
 
-    [UIView beginAnimations:@"animation" context:nil];
-    [UIView setAnimationDuration:1.0f];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationTransition:UIViewContentModeLeft forView:self.view cache:YES];
-    [UIView commitAnimations];
 }
 
 - (IBAction)countChange:(id)sender
