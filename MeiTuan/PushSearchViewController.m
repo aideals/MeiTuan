@@ -89,11 +89,10 @@
             [button setBackgroundColor:[UIColor whiteColor]];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:13.0];
-            [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchDown];
             button.tag = j + 6 * i + 10;
+            [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchDown];
             NSString *title = [stringArr objectAtIndex:j + 6 * i];
             [button setTitle:title forState:UIControlStateNormal];
-            self.buttonTag = j + 6 * i + 10;
             [self.scrollView addSubview:button];
         }
     }
