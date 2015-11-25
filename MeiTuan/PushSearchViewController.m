@@ -104,8 +104,7 @@
 
 - (IBAction)changeView:(id)sender
 {
-    NSString *title = [[NSString alloc] init];
-    title = [self.stringArr objectAtIndex:self.buttonTag];
+    NSString *title = [self.stringArr objectAtIndex:self.buttonTag];
     
     TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];

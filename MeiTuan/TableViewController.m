@@ -40,6 +40,7 @@
                                                                    action:@selector(map:)];
 
     [self.navigationItem setRightBarButtonItem:rightButton];
+
 }
 
 
@@ -54,6 +55,13 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mapViewController];
     
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)initSegmentedControl
+{
+    NSArray *title = [[NSArray alloc] initWithObjects:@"美食",@"全城",@"智能排序",@"筛选", nil];
+    UISegmentedControl *sc = [[UISegmentedControl alloc] initWithItems:title];
+    sc.frame = CGRectMake(0, 0, 320, 45);
 }
 
 
