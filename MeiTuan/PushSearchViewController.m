@@ -107,6 +107,7 @@
     NSString *title = [self.stringArr objectAtIndex:self.buttonTag];
     
     TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
+    tableViewController.placheHolder = title;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
     [self presentViewController:nav animated:YES completion:nil];

@@ -11,6 +11,7 @@
 
 @interface TableViewController () <UISearchBarDelegate>
 
+
 @end
 
 @implementation TableViewController
@@ -22,7 +23,7 @@
 	
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(45, 15, 85.0, 10.0)];
     searchBar.delegate = self;
-    searchBar.placeholder = @"buttonValue";
+    searchBar.placeholder = self.placheHolder;
     
     [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
     self.navigationItem.titleView = searchBar;

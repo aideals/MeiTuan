@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewController : UIViewController
-
+@property (nonatomic,assign) NSString *placheHolder;
 @end
