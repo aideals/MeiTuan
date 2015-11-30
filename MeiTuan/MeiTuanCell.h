@@ -11,4 +11,6 @@
 @interface MeiTuanCell : UITableViewCell
 @property (nonatomic,strong) UILabel *textLabel;
 @property (nonatomic,strong) UIImageView *imageLabel;
+@property (nonatomic,strong) UIImageView *startLabel;
+
 @end
