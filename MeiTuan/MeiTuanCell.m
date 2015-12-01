@@ -22,7 +22,7 @@
 - (void)configureContent
 {
     self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 40, 50, 25)];
-    self.imageLabel = [UIImageView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    
 }
 
 @end
