@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "MapViewController.h"
+#import "StarScore.h"
 
 @interface TableViewController () <UISearchBarDelegate>
 

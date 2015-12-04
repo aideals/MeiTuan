@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0687D4DA1BFD768E007CCC08 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0687D4D91BFD768E007CCC08 /* TableViewController.m */; };
+		06913F771C0FC07A00BC4CDE /* b27_icon_star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06913F751C0FC07A00BC4CDE /* b27_icon_star_gray@2x.png */; };
+		06913F781C0FC07A00BC4CDE /* b27_icon_star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06913F761C0FC07A00BC4CDE /* b27_icon_star_yellow@2x.png */; };
+		069C1F6A1C0D8D04006DC952 /* StarScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 069C1F691C0D8D04006DC952 /* StarScore.m */; };
 		06A37D921BEB3C3600A084D1 /* PushSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */; };
 		06D675AE1BE7458E00296246 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D675AD1BE7458E00296246 /* Foundation.framework */; };
 		06D675B01BE7458E00296246 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D675AF1BE7458E00296246 /* CoreGraphics.framework */; };
@@ -42,6 +45,10 @@
 /* Begin PBXFileReference section */
 		0687D4D81BFD768E007CCC08 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		0687D4D91BFD768E007CCC08 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		06913F751C0FC07A00BC4CDE /* b27_icon_star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "b27_icon_star_gray@2x.png"; path = "../b27_icon_star_gray@2x.png"; sourceTree = "<group>"; };
+		06913F761C0FC07A00BC4CDE /* b27_icon_star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "b27_icon_star_yellow@2x.png"; path = "../b27_icon_star_yellow@2x.png"; sourceTree = "<group>"; };
+		069C1F681C0D8D04006DC952 /* StarScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarScore.h; sourceTree = "<group>"; };
+		069C1F691C0D8D04006DC952 /* StarScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarScore.m; sourceTree = "<group>"; };
 		06A37D901BEB3C3600A084D1 /* PushSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushSearchViewController.h; sourceTree = "<group>"; };
 		06A37D911BEB3C3600A084D1 /* PushSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushSearchViewController.m; sourceTree = "<group>"; };
 		06D675AA1BE7458E00296246 /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +148,8 @@
 				0687D4D91BFD768E007CCC08 /* TableViewController.m */,
 				06DF0AFB1C06955600DC04A0 /* MeiTuanCell.h */,
 				06DF0AFC1C06955600DC04A0 /* MeiTuanCell.m */,
+				069C1F681C0D8D04006DC952 /* StarScore.h */,
+				069C1F691C0D8D04006DC952 /* StarScore.m */,
 				06E96B431C01B06B00833657 /* MapViewController.h */,
 				06E96B441C01B06B00833657 /* MapViewController.m */,
 				06D675E51BE7532700296246 /* ShangJiaViewController.h */,
@@ -158,6 +167,8 @@
 		06D675B41BE7458E00296246 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				06913F751C0FC07A00BC4CDE /* b27_icon_star_gray@2x.png */,
+				06913F761C0FC07A00BC4CDE /* b27_icon_star_yellow@2x.png */,
 				06D675B51BE7458E00296246 /* MeiTuan-Info.plist */,
 				06D675B61BE7458E00296246 /* InfoPlist.strings */,
 				06D675B91BE7458E00296246 /* main.m */,
@@ -261,8 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06913F771C0FC07A00BC4CDE /* b27_icon_star_gray@2x.png in Resources */,
 				06D675C61BE7458E00296246 /* Images.xcassets in Resources */,
 				06D675B81BE7458E00296246 /* InfoPlist.strings in Resources */,
+				06913F781C0FC07A00BC4CDE /* b27_icon_star_yellow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069C1F6A1C0D8D04006DC952 /* StarScore.m in Sources */,
 				06A37D921BEB3C3600A084D1 /* PushSearchViewController.m in Sources */,
 				06D675E41BE7530800296246 /* TuanGouViewController.m in Sources */,
 				06D675BE1BE7458E00296246 /* MeiTuanAppDelegate.m in Sources */,
