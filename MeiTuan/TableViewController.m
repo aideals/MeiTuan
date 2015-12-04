@@ -9,9 +9,14 @@
 #import "TableViewController.h"
 #import "MapViewController.h"
 #import "StarScore.h"
+#import "MeiTuanModel.h"
 
 @interface TableViewController () <UISearchBarDelegate>
+{
+    NSMutableArray *tableData;
+}
 
+@property (nonatomic,strong) StarScore *startScore;
 
 @end
 
@@ -43,8 +48,22 @@
 
     [self.navigationItem setRightBarButtonItem:rightButton];
 
+    self.startScore = [[StarScore alloc] initWithFrame:CGRectMake(0, 0, 55, 40) numberOfStars:5];
+    self.startScore.isAnimation = YES;
+    self.startScore.incompleteStar = YES;
+    self.startScore.scorePercent = 0.2;
+
 }
 
+- (void)setTableData
+{
+    if ([self.placheHolder  isEqual: @"董小姐的面"]) {
+        MeiTuanModel *model = [[MeiTuanModel alloc] init];
+        [model setTitle:@"董小姐的面"];
+        [model setImage1:@"dongxiaojiedemian.png"];
+        
+    }
+}
 
 - (IBAction)back:(id)sender
 {
