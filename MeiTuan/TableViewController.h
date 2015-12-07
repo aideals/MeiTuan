@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface TableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,assign) NSString *placheHolder;
 @end

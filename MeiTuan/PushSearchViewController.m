@@ -13,7 +13,6 @@
 @property (nonatomic,strong) UIPageControl *pageControl;
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic) NSInteger currentPage;
-@property (nonatomic,strong) NSString *title;
 @end
 
 @implementation PushSearchViewController
@@ -82,6 +81,7 @@
     y_space = 12;
     
     NSArray *stringArr = [[NSArray alloc] initWithObjects:@"小肥羊",@"肯德基",@"德克士",@"全家来",@"华莱士",@"上岛",@"沙县小吃",@"欢乐牧场自主火锅",@"黄鹤楼",@"佳客来",@"董小姐的面",@"爱拉屋",@"玲珑足浴",@"素百味自助餐",@"咖啡之屋",@"口水鸡排",@"曹打胖擀面皮",@"去蜀火锅", nil];
+    NSString *title;
     
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 6; j++) {
@@ -91,18 +91,18 @@
             button.titleLabel.font = [UIFont systemFontOfSize:13.0];
             button.tag = j + 6 * i + 10;
             [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchDown];
-            self.title = [stringArr objectAtIndex:j + 6 * i];
-            [button setTitle:_title forState:UIControlStateNormal];
+            title = [stringArr objectAtIndex:j + 6 * i];
+            [button setTitle:title forState:UIControlStateNormal];
             [self.scrollView addSubview:button];
         }
     }
 }
 
-- (IBAction)changeView:(id)sender
+- (IBAction)changeView:(UIButton *)sender
 {
    
-    TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
-    tableViewController.placheHolder = self.title;
+    TableViewController *tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    tableViewController.placheHolder = sender.titleLabel.text;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
     [self presentViewController:nav animated:YES completion:nil];

@@ -53,6 +53,21 @@
     self.startScore.incompleteStar = YES;
     self.startScore.scorePercent = 0.2;
 
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 75, 35, 30)];
+    button.titleLabel.text = @"美食";
+    [self.view addSubview:button];
+    
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(35, 50, 35, 30)];
+    button.titleLabel.text = @"全城";
+    [self.view addSubview:button1];
+    
+    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(70, 50, 35, 30)];
+    button2.titleLabel.text = @"智能排序";
+    [self.view addSubview:button2];
+    
+    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(105, 50, 35, 30)];
+    button3.titleLabel.text = @"筛选";
+    [self.view addSubview:button3];
 }
 
 - (void)setTableData
