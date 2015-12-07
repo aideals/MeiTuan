@@ -13,8 +13,7 @@
 @property (nonatomic,strong) UIPageControl *pageControl;
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic) NSInteger currentPage;
-@property (nonatomic) NSInteger buttonTag;
-@property (nonatomic,strong) NSArray *stringArr;
+@property (nonatomic,strong) NSString *title;
 @end
 
 @implementation PushSearchViewController
@@ -23,9 +22,6 @@
 {
     [super viewDidLoad];
 	
-    self.stringArr = [[NSArray alloc] initWithObjects:@"小肥羊",@"肯德基",@"德克士",@"全家来",@"华莱士",@"上岛",@"沙县小吃",@"欢乐牧场自主火锅",@"黄鹤楼",@"佳客来",@"董小姐的面",@"爱拉屋",@"玲珑足浴",@"素百味自助餐",@"咖啡之屋",@"口水鸡排",@"曹打胖擀面皮",@"去蜀火锅", nil];
-
-    
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(75, 13, 180.0, 10.0)];
     searchBar.placeholder = @"请输入商家名、品类或商圈。。。";
     self.navigationItem.titleView = searchBar;
@@ -85,6 +81,7 @@
     x_space = 20;
     y_space = 12;
     
+    NSArray *stringArr = [[NSArray alloc] initWithObjects:@"小肥羊",@"肯德基",@"德克士",@"全家来",@"华莱士",@"上岛",@"沙县小吃",@"欢乐牧场自主火锅",@"黄鹤楼",@"佳客来",@"董小姐的面",@"爱拉屋",@"玲珑足浴",@"素百味自助餐",@"咖啡之屋",@"口水鸡排",@"曹打胖擀面皮",@"去蜀火锅", nil];
     
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 6; j++) {
@@ -94,9 +91,8 @@
             button.titleLabel.font = [UIFont systemFontOfSize:13.0];
             button.tag = j + 6 * i + 10;
             [button addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchDown];
-            NSString *title = [self.stringArr objectAtIndex:j + 6 * i];
-            [button setTitle:title forState:UIControlStateNormal];
-            self.buttonTag = button.tag;
+            self.title = [stringArr objectAtIndex:j + 6 * i];
+            [button setTitle:_title forState:UIControlStateNormal];
             [self.scrollView addSubview:button];
         }
     }
@@ -104,10 +100,9 @@
 
 - (IBAction)changeView:(id)sender
 {
-    NSString *title = [self.stringArr objectAtIndex:self.buttonTag];
-    
+   
     TableViewController *tableViewController = [[TableViewController alloc] initWithNibName:nil bundle:nil];
-    tableViewController.placheHolder = title;
+    tableViewController.placheHolder = self.title;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
     [self presentViewController:nav animated:YES completion:nil];
