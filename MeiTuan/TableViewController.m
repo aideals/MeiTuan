@@ -17,7 +17,8 @@
 }
 
 @property (nonatomic,strong) StarScore *startScore;
-
+@property (nonatomic,strong) UIView *MeiShiView;
+@property (nonatomic,strong) UIButton *disButton;
 @end
 
 @implementation TableViewController
@@ -84,12 +85,19 @@
     [button3 addTarget:self action:@selector(shaixuan:) forControlEvents:UIControlEventTouchDown];
     button3.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button3];
+
+    self.disButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, 20)];
+    self.disButton.backgroundColor = [UIColor whiteColor];
+    [self.disButton addTarget:self action:@selector(disappearView:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (IBAction)meishi:(id)sender
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 175)];
-    view.backgroundColor = [UIColor whiteColor];
+    self.MeiShiView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
+    self.MeiShiView.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
+    [self.view addSubview:self.MeiShiView];
+    [self.view addSubview:self.disButton];
+    
 }
 
 - (IBAction)quancheng:(id)sender
@@ -106,6 +114,13 @@
 {
     
 }
+
+- (IBAction)disappearView:(id)sender
+{
+    
+}
+
+
 
 - (void)setTableData
 {
