@@ -88,7 +88,8 @@
 
 - (IBAction)meishi:(id)sender
 {
-    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 175)];
+    view.backgroundColor = [UIColor whiteColor];
 }
 
 - (IBAction)quancheng:(id)sender
