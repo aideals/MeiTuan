@@ -17,8 +17,9 @@
 }
 
 @property (nonatomic,strong) StarScore *startScore;
-@property (nonatomic,strong) UIView *MeiShiView;
+@property (nonatomic,strong) UIView *meiShiView;
 @property (nonatomic,strong) UIButton *disButton;
+@property (nonatomic,strong) UITableView *quanChengTB;
 @end
 
 @implementation TableViewController
@@ -93,9 +94,9 @@
 
 - (IBAction)meishi:(id)sender
 {
-    self.MeiShiView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
-    self.MeiShiView.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
-    [self.view addSubview:self.MeiShiView];
+    self.meiShiView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
+    self.meiShiView.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
+    [self.view addSubview:self.meiShiView];
     [self.view addSubview:self.disButton];
     
 }
@@ -117,10 +118,9 @@
 
 - (IBAction)disappearView:(id)sender
 {
-    
+    self.meiShiView.alpha = 0.0;
+    self.disButton.alpha = 0.0;
 }
-
-
 
 - (void)setTableData
 {
