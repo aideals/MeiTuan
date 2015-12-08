@@ -53,21 +53,57 @@
     self.startScore.incompleteStar = YES;
     self.startScore.scorePercent = 0.2;
 
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 75, 35, 30)];
-    button.titleLabel.text = @"美食";
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 79, 30)];
+    [button setTitle:@"美食" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+    [button addTarget:self action:@selector(meishi:) forControlEvents:UIControlEventTouchDown];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button];
     
-    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(35, 50, 35, 30)];
-    button.titleLabel.text = @"全城";
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 79, 30)];
+    [button1 setTitle:@"全城" forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button1 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+    [button1 addTarget:self action:@selector(quancheng:) forControlEvents:UIControlEventTouchDown];
+    button1.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button1];
     
-    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(70, 50, 35, 30)];
-    button2.titleLabel.text = @"智能排序";
+    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 0, 79, 30)];
+    [button2 setTitle:@"智能排序" forState:UIControlStateNormal];
+    [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button2 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+    [button2 addTarget:self action:@selector(zhinengpaixu:) forControlEvents:UIControlEventTouchDown];
+    button2.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button2];
     
-    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(105, 50, 35, 30)];
-    button3.titleLabel.text = @"筛选";
+    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(240, 0, 79, 30)];
+    [button3 setTitle:@"筛选" forState:UIControlStateNormal];
+    [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button3 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+    [button3 addTarget:self action:@selector(shaixuan:) forControlEvents:UIControlEventTouchDown];
+    button3.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button3];
+}
+
+- (IBAction)meishi:(id)sender
+{
+    
+}
+
+- (IBAction)quancheng:(id)sender
+{
+    
+}
+
+- (IBAction)zhinengpaixu:(id)sender
+{
+    
+}
+
+- (IBAction)shaixuan:(id)sender
+{
+    
 }
 
 - (void)setTableData
