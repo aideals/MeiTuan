@@ -20,6 +20,7 @@
 @property (nonatomic,strong) UIView *meiShiView;
 @property (nonatomic,strong) UIButton *disButton;
 @property (nonatomic,strong) UITableView *quanChengTB;
+@property (nonatomic,strong) UITableView *smartSortTB;
 @end
 
 @implementation TableViewController
@@ -103,12 +104,18 @@
 
 - (IBAction)quancheng:(id)sender
 {
-    
+    self.quanChengTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
+    self.quanChengTB.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
+    [self.view addSubview:self.quanChengTB];
+    [self.view addSubview:self.disButton];
 }
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    
+    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
+    self.smartSortTB.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.smartSortTB];
+    [self.view addSubview:self.disButton];
 }
 
 - (IBAction)shaixuan:(id)sender
