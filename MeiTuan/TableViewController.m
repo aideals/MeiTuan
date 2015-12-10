@@ -23,6 +23,8 @@
 @property (nonatomic,strong) UITableView *selectTB;
 @property (nonatomic,strong) UIButton *foodButton;
 @property (nonatomic,strong) UIButton *allCityButton;
+@property (nonatomic,strong) UIButton *smartSortButton;
+@property (nonatomic,strong) NSArray *strArray;
 @end
 
 @implementation TableViewController
@@ -99,6 +101,11 @@
     self.allCityButton.backgroundColor = [UIColor grayColor];
     [self.allCityButton addTarget:self action:@selector(deleteAllCityView:) forControlEvents:UIControlEventTouchDown];
     
+    self.smartSortButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 245, self.view.bounds.size.width, 20)];
+    self.smartSortButton.backgroundColor = [UIColor grayColor];
+    [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
+
+    self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
 
 }
 
@@ -123,7 +130,34 @@
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 120) style:UITableViewStylePlain];
+    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 230) style:UITableViewStylePlain];
+    
+    self.smartSortTB.delegate = self;
+    self.smartSortTB.dataSource = self;
+    
+    [self.view addSubview:self.smartSortTB];
+    [self.view addSubview:self.smartSortButton];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.strArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier = @"Cell";
+    UITableViewCell *cell = [self.smartSortTB dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
+    return cell;
 }
 
 - (IBAction)shaixuan:(id)sender
@@ -143,6 +177,11 @@
     [self.allCityButton removeFromSuperview];
 }
 
+- (IBAction)deleteSmartSortView:(id)sender
+{
+    [self.smartSortTB removeFromSuperview];
+    [self.smartSortButton removeFromSuperview];
+}
 
 - (IBAction)back:(id)sender
 {
