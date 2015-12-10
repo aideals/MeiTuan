@@ -17,11 +17,12 @@
 }
 
 @property (nonatomic,strong) StarScore *startScore;
-@property (nonatomic,strong) UIView *meiShiView;
-@property (nonatomic,strong) UIButton *disButton;
-@property (nonatomic,strong) UITableView *quanChengTB;
+@property (nonatomic,strong) UIView *foodView;
+@property (nonatomic,strong) UITableView *allCityTB;
 @property (nonatomic,strong) UITableView *smartSortTB;
-@property (nonatomic,strong) UITableView *shaixuanTB;
+@property (nonatomic,strong) UITableView *selectTB;
+@property (nonatomic,strong) UIButton *foodButton;
+@property (nonatomic,strong) UIButton *allCityButton;
 @end
 
 @implementation TableViewController
@@ -89,58 +90,59 @@
     button3.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button3];
 
-    self.disButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, 20)];
-    self.disButton.backgroundColor = [UIColor whiteColor];
-    [self.disButton addTarget:self action:@selector(disappearView:) forControlEvents:UIControlEventTouchDown];
+    self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.foodButton.backgroundColor = [UIColor grayColor];
+    [self.foodButton addTarget:self action:@selector(foodView:) forControlEvents:UIControlEventTouchDown];
+    
+    
+    self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.allCityButton.backgroundColor = [UIColor grayColor];
+    [self.allCityButton addTarget:self action:@selector(allCityView:) forControlEvents:UIControlEventTouchDown];
+    
+
 }
 
 - (IBAction)meishi:(id)sender
 {
-    self.meiShiView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
-    self.meiShiView.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
-    [self.view addSubview:self.meiShiView];
-    [self.view addSubview:self.disButton];
+    self.foodView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
+    self.foodView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:_foodButton];
+    [self.view addSubview:self.foodView];
+    
     
 }
 
 - (IBAction)quancheng:(id)sender
 {
-    self.quanChengTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
-    self.quanChengTB.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
-    [self.view addSubview:self.quanChengTB];
-    [self.view addSubview:self.disButton];
+    self.allCityTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
+    
+    [self.view addSubview:self.allCityTB];
+    [self.view addSubview:_allCityButton];
 }
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
-    self.smartSortTB.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.smartSortTB];
-    [self.view addSubview:self.disButton];
+    
 }
 
 - (IBAction)shaixuan:(id)sender
 {
-    self.shaixuanTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 250) style:UITableViewStylePlain];
-    self.shaixuanTB.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.shaixuanTB];
-    [self.view addSubview:self.disButton];
+    
 }
 
-- (IBAction)disappearView:(id)sender
+- (IBAction)foodView:(id)sender
 {
-    self.meiShiView.alpha = 0.0;
-    self.disButton.alpha = 0.0;
-
-    self.quanChengTB.alpha = 0.0;
-    self.disButton.alpha = 0.0;
-    
-    self.smartSortTB.alpha = 0.0;
-    self.disButton.alpha = 0.0;
-    
-    self.shaixuanTB.alpha = 0.0;
-    self.disButton.alpha = 0.0;
+    self.foodView.alpha = 0.0;
+    self.foodButton.alpha = 0.0;
 }
+
+- (IBAction)allCityView:(id)sender
+{
+    self.allCityTB.alpha = 0.0;
+    self.allCityButton.alpha = 0.0;
+}
+
 
 - (IBAction)back:(id)sender
 {
