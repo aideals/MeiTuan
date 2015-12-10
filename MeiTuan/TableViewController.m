@@ -92,12 +92,12 @@
 
     self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
     self.foodButton.backgroundColor = [UIColor grayColor];
-    [self.foodButton addTarget:self action:@selector(foodView:) forControlEvents:UIControlEventTouchDown];
+    [self.foodButton addTarget:self action:@selector(deleteFoodView:) forControlEvents:UIControlEventTouchDown];
     
     
-    self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 145, self.view.bounds.size.width, 20)];
     self.allCityButton.backgroundColor = [UIColor grayColor];
-    [self.allCityButton addTarget:self action:@selector(allCityView:) forControlEvents:UIControlEventTouchDown];
+    [self.allCityButton addTarget:self action:@selector(deleteAllCityView:) forControlEvents:UIControlEventTouchDown];
     
 
 }
@@ -115,7 +115,7 @@
 
 - (IBAction)quancheng:(id)sender
 {
-    self.allCityTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 100) style:UITableViewStylePlain];
+    self.allCityTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 135) style:UITableViewStylePlain];
     
     [self.view addSubview:self.allCityTB];
     [self.view addSubview:_allCityButton];
@@ -131,16 +131,16 @@
     
 }
 
-- (IBAction)foodView:(id)sender
+- (IBAction)deleteFoodView:(id)sender
 {
-    self.foodView.alpha = 0.0;
-    self.foodButton.alpha = 0.0;
+    [self.foodView removeFromSuperview];
+    [self.foodButton removeFromSuperview];
 }
 
-- (IBAction)allCityView:(id)sender
+- (IBAction)deleteAllCityView:(id)sender
 {
-    self.allCityTB.alpha = 0.0;
-    self.allCityButton.alpha = 0.0;
+    [self.allCityTB removeFromSuperview];
+    [self.allCityButton removeFromSuperview];
 }
 
 
