@@ -21,6 +21,7 @@
 @property (nonatomic,strong) UIButton *disButton;
 @property (nonatomic,strong) UITableView *quanChengTB;
 @property (nonatomic,strong) UITableView *smartSortTB;
+@property (nonatomic,strong) UITableView *shaixuanTB;
 @end
 
 @implementation TableViewController
@@ -120,23 +121,25 @@
 
 - (IBAction)shaixuan:(id)sender
 {
-    
+    self.shaixuanTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 250) style:UITableViewStylePlain];
+    self.shaixuanTB.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.shaixuanTB];
+    [self.view addSubview:self.disButton];
 }
 
 - (IBAction)disappearView:(id)sender
 {
     self.meiShiView.alpha = 0.0;
     self.disButton.alpha = 0.0;
-}
 
-- (void)setTableData
-{
-    if ([self.placheHolder  isEqual: @"董小姐的面"]) {
-        MeiTuanModel *model = [[MeiTuanModel alloc] init];
-        [model setTitle:@"董小姐的面"];
-        [model setImage1:@"dongxiaojiedemian.png"];
-        
-    }
+    self.quanChengTB.alpha = 0.0;
+    self.disButton.alpha = 0.0;
+    
+    self.smartSortTB.alpha = 0.0;
+    self.disButton.alpha = 0.0;
+    
+    self.shaixuanTB.alpha = 0.0;
+    self.disButton.alpha = 0.0;
 }
 
 - (IBAction)back:(id)sender
