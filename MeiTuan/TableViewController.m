@@ -123,7 +123,7 @@
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    
+    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 120) style:UITableViewStylePlain];
 }
 
 - (IBAction)shaixuan:(id)sender
