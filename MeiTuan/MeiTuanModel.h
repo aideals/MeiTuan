@@ -11,8 +11,6 @@
 @interface MeiTuanModel : NSObject
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *image1;
-@property (nonatomic,strong) NSString *image2;
-@property (nonatomic,strong) NSString *image3;
 @property (nonatomic,strong) NSString *scoreImage;
 
 @end

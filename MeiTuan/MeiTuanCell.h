@@ -12,6 +12,4 @@
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UIImageView *imageLabel;
 @property (nonatomic,strong) UIImageView *starScore;
-@property (nonatomic,strong) UIImageView *titleImage1;
-@property (nonatomic,strong) UIImageView *titleImage2;
 @end
