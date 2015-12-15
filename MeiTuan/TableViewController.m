@@ -117,7 +117,6 @@
     [self.view addSubview:_foodButton];
     [self.view addSubview:self.foodView];
     
-    
 }
 
 - (IBAction)quancheng:(id)sender
@@ -141,12 +140,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    NSInteger number = 0 ;
+    
+    if (tableView == self.smartSortTB) {
+        number = 1;
+    }
+    return number;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.strArray count];
+    NSInteger row = 0;
+    
+    if (tableView == self.smartSortTB) {
+        row = [self.strArray count];
+    }
+    return row;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
