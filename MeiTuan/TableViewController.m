@@ -18,14 +18,11 @@
 
 @property (nonatomic,strong) StarScore *startScore;
 @property (nonatomic,strong) UIView *foodView;
-@property (nonatomic,strong) UITableView *allCityTB;
-@property (nonatomic,strong) UITableView *smartSortTB;
-@property (nonatomic,strong) UITableView *selectTB;
 @property (nonatomic,strong) UIButton *foodButton;
 @property (nonatomic,strong) UIButton *allCityButton;
 @property (nonatomic,strong) UIButton *smartSortButton;
 @property (nonatomic,strong) NSArray *strArray;
-@property (nonatomic,strong) UITableView *displayTB;
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation TableViewController
@@ -108,109 +105,38 @@
 
     self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
 
-    [self configData];
+    
     [self initTableView];
-
-    tableData = [NSMutableArray array];
 
 }
 
 - (void)initTableView
 {
-    self.displayTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 95) style:UITableViewStyleGrouped];
-    self.displayTB.delegate = self;
-    self.displayTB.dataSource = self;
-
-    [self.view addSubview:self.displayTB];
+    self.tableView = [[UITableView alloc] init];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
-
-- (void)configData
-{
-    MeiTuanModel *model = [[MeiTuanModel alloc] init];
-    [model setTitle:@"董小姐的面"];
-    [model setImage1:@"dongxiaojiedemian.png"];
-    [tableData addObject:model];
-}
 
 - (IBAction)meishi:(id)sender
 {
-    self.foodView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 85)];
-    self.foodView.backgroundColor = [UIColor whiteColor];
+    self.tableView.frame = CGRectMake(0, 30, self.view.bounds.size.width, 85);
+   [self.view addSubview:self.tableView];
     
-    [self.view addSubview:_foodButton];
-    [self.view addSubview:self.foodView];
-    
+
 }
 
 - (IBAction)quancheng:(id)sender
 {
-    self.allCityTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 135) style:UITableViewStylePlain];
     
-    [self.view addSubview:self.allCityTB];
-    [self.view addSubview:_allCityButton];
 }
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    self.smartSortTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.bounds.size.width, 230) style:UITableViewStylePlain];
     
-    self.smartSortTB.delegate = self;
-    self.smartSortTB.dataSource = self;
-    
-    [self.view addSubview:self.smartSortTB];
-    [self.view addSubview:self.smartSortButton];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    NSInteger number = 0 ;
-    
-    if (tableView == self.smartSortTB) {
-        number = 1;
-    }
-    return number;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    if ([self.placheHolder  isEqual: @"董小姐的面"]) {
-        return [tableData count];
-    }
-    
-    NSInteger row = 0;
-    
-    if (tableView == self.smartSortTB) {
-        row = [self.strArray count];
-    }
-    return row;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([self.placheHolder isEqual:@"董小姐的面"]) {
-        NSString *identifier1 = @"cell";
-        UITableViewCell *cell = [self.displayTB dequeueReusableCellWithIdentifier:identifier1];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier1];
-        }
-        MeiTuanModel *model = [tableData objectAtIndex:indexPath.row];
-        cell.textLabel.text = model.title;
-        cell.imageView.image = [UIImage imageNamed:model.image1];
-        return cell;
-    }
-    
-    
-    
-    NSString *identifier = @"Cell";
-    UITableViewCell *cell = [self.smartSortTB dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
-    return cell;
-}
 
 - (IBAction)shaixuan:(id)sender
 {
@@ -225,14 +151,12 @@
 
 - (IBAction)deleteAllCityView:(id)sender
 {
-    [self.allCityTB removeFromSuperview];
-    [self.allCityButton removeFromSuperview];
+    
 }
 
 - (IBAction)deleteSmartSortView:(id)sender
 {
-    [self.smartSortTB removeFromSuperview];
-    [self.smartSortButton removeFromSuperview];
+
 }
 
 - (IBAction)back:(id)sender

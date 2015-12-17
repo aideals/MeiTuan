@@ -12,4 +12,7 @@
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UIImageView *imageLabel;
 @property (nonatomic,strong) UIImageView *starScore;
+
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end
