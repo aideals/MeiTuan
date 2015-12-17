@@ -22,7 +22,7 @@
 @property (nonatomic,strong) UIButton *allCityButton;
 @property (nonatomic,strong) UIButton *smartSortButton;
 @property (nonatomic,strong) NSArray *strArray;
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) UITableView *displayTB;
 @end
 
 @implementation TableViewController
@@ -90,53 +90,52 @@
     button3.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button3];
 
-    self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, self.view.bounds.size.width, 20)];
     self.foodButton.backgroundColor = [UIColor grayColor];
     [self.foodButton addTarget:self action:@selector(deleteFoodView:) forControlEvents:UIControlEventTouchDown];
     
     
-    self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 145, self.view.bounds.size.width, 20)];
+    self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, self.view.bounds.size.width, 20)];
     self.allCityButton.backgroundColor = [UIColor grayColor];
     [self.allCityButton addTarget:self action:@selector(deleteAllCityView:) forControlEvents:UIControlEventTouchDown];
     
-    self.smartSortButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 245, self.view.bounds.size.width, 20)];
+    self.smartSortButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 250, self.view.bounds.size.width, 20)];
     self.smartSortButton.backgroundColor = [UIColor grayColor];
     [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
 
     self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
-
+    
+    self.edgesForExtendedLayout = UIRectEdgeTop;
     
     [self initTableView];
-
 }
 
 - (void)initTableView
 {
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.displayTB = [[UITableView alloc] init];
 }
 
 
 - (IBAction)meishi:(id)sender
 {
-    self.tableView.frame = CGRectMake(0, 30, self.view.bounds.size.width, 85);
-   [self.view addSubview:self.tableView];
-    
-
+    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 109);
+    [self.view addSubview:self.displayTB];
+    [self.view addSubview:self.foodButton];
 }
 
 - (IBAction)quancheng:(id)sender
 {
-    
+    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 140);
+    [self.view addSubview:self.displayTB];
+    [self.view addSubview:self.allCityButton];
 }
 
 - (IBAction)zhinengpaixu:(id)sender
 {
-    
+    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
+    [self.view addSubview:self.displayTB];
+    [self.view addSubview:self.smartSortButton];
 }
-
-
 
 - (IBAction)shaixuan:(id)sender
 {
@@ -145,19 +144,54 @@
 
 - (IBAction)deleteFoodView:(id)sender
 {
-    [self.foodView removeFromSuperview];
+    [self.displayTB removeFromSuperview];
     [self.foodButton removeFromSuperview];
 }
 
 - (IBAction)deleteAllCityView:(id)sender
 {
-    
+    [self.displayTB removeFromSuperview];
+    [self.allCityButton removeFromSuperview];
 }
 
 - (IBAction)deleteSmartSortView:(id)sender
 {
-
+    [self.displayTB removeFromSuperview];
+    [self.smartSortButton removeFromSuperview];
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSInteger number = 0;
+    
+    if (tableView == self.displayTB) {
+        number = 1;
+    }
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger number = 0;
+    
+    if (tableView == self.displayTB) {
+        number = [self.strArray count];
+    }
+    return number;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier = @"cell";
+    UITableViewCell *cell = [self.displayTB dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
+    return cell;
+}
+
+
 
 - (IBAction)back:(id)sender
 {
