@@ -108,6 +108,9 @@
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
     [self initTableView];
+    [self configData];
+    
+    tableData = [NSMutableArray array];
 }
 
 - (void)initTableView
@@ -115,6 +118,15 @@
     self.displayTB = [[UITableView alloc] init];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
+}
+
+- (void)configData
+{
+    MeiTuanModel *model = [[MeiTuanModel alloc] init];
+    [model setTitle:@"董小姐的面（西关店）"];
+    [model setImage1:@"dongxiaojiedemian.png"];
+    
+    [tableData addObject:model];
 }
 
 
@@ -164,36 +176,36 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger number = 0;
-    
     if (tableView == self.displayTB) {
-        number = 1;
+       return  1;
     }
-    return 1;
+    else if ([self.placheHolder isEqualToString:@"董小姐的面"]) {
+        return 3;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger number = 0;
-    
     if (tableView == self.displayTB) {
-        number = [self.strArray count];
+        return [self.strArray count];
     }
-    return number;
+    else if ([self.placheHolder isEqualToString:@"董小姐的面"]) {
+        return [tableData count];
+    }
+
+    return 0;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    
-    if (tableView == self.displayTB) {
-        NSString *identifier = @"cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }
-        cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
+    NSString *identifier = @"cell";
+    UITableViewCell *cell = [self.displayTB dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
+    
     return cell;
 }
 

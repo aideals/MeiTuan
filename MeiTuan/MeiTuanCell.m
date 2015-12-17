@@ -24,7 +24,7 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 35, 60, 30)];
     self.imageLabel = [[UIImageView alloc] initWithFrame:CGRectMake(10, 35, 30, 30)];
     self.starScore = [[UIImageView alloc] initWithFrame:CGRectMake(40, 50, 50, 30)];
-    
+   
     
     [self addSubview:_titleLabel];
     [self addSubview:_imageLabel];
