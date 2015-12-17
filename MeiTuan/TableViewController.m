@@ -16,7 +16,7 @@
     NSMutableArray *tableData;
 }
 
-@property (nonatomic,strong) StarScore *startScore;
+@property (nonatomic,strong) StarScore *starScore;
 @property (nonatomic,strong) UIView *foodView;
 @property (nonatomic,strong) UIButton *foodButton;
 @property (nonatomic,strong) UIButton *allCityButton;
@@ -53,10 +53,10 @@
 
     [self.navigationItem setRightBarButtonItem:rightButton];
 
-    self.startScore = [[StarScore alloc] initWithFrame:CGRectMake(0, 0, 55, 40) numberOfStars:5];
-    self.startScore.isAnimation = YES;
-    self.startScore.incompleteStar = YES;
-    self.startScore.scorePercent = 0.2;
+    self.starScore = [[StarScore alloc] initWithFrame:CGRectMake(0, 0, 55, 40) numberOfStars:5];
+    self.starScore.isAnimation = YES;
+    self.starScore.incompleteStar = YES;
+    self.starScore.scorePercent = 0.2;
 
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 79, 30)];
     [button setTitle:@"美食" forState:UIControlStateNormal];
@@ -113,6 +113,8 @@
 - (void)initTableView
 {
     self.displayTB = [[UITableView alloc] init];
+    self.displayTB.delegate = self;
+    self.displayTB.dataSource = self;
 }
 
 
@@ -182,16 +184,18 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"cell";
-    UITableViewCell *cell = [self.displayTB dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    UITableViewCell *cell;
+    
+    if (tableView == self.displayTB) {
+        NSString *identifier = @"cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
     }
-    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
     return cell;
 }
-
-
 
 - (IBAction)back:(id)sender
 {
