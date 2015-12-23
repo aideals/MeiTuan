@@ -74,7 +74,7 @@
     button1.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:button1];
     
-    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 0, 79, 30)];
+     UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 0, 79, 30)];
     [button2 setTitle:@"智能排序" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button2 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
@@ -132,23 +132,27 @@
 
 - (IBAction)meishi:(id)sender
 {
-    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 109);
+    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 65);
     [self.view addSubview:self.displayTB];
     [self.view addSubview:self.foodButton];
 }
 
 - (IBAction)quancheng:(id)sender
 {
-    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 140);
-    [self.view addSubview:self.displayTB];
-    [self.view addSubview:self.allCityButton];
+    
 }
 
-- (IBAction)zhinengpaixu:(id)sender
+- (IBAction)zhinengpaixu:(UIButton *)sender
 {
     self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
     [self.view addSubview:self.displayTB];
     [self.view addSubview:self.smartSortButton];
+
+    if ([sender.titleLabel.text isEqualToString:@"智能排序"]) {
+        
+    }
+    
+    
 }
 
 - (IBAction)shaixuan:(id)sender
@@ -197,15 +201,15 @@
     return 0;
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"cell";
-    UITableViewCell *cell = [self.displayTB dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
     
+    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -221,8 +225,5 @@
     
     [self presentViewController:nav animated:YES completion:nil];
 }
-
-
-
 
 @end
