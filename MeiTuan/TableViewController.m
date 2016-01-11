@@ -103,12 +103,11 @@
     self.smartSortButton.backgroundColor = [UIColor grayColor];
     [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
 
-    self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
-    
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
     [self initTableView];
     [self configData];
+    [self.displayTB  reloadData];
     
     tableData = [NSMutableArray array];
 }
@@ -148,11 +147,7 @@
     [self.view addSubview:self.displayTB];
     [self.view addSubview:self.smartSortButton];
 
-    if ([sender.titleLabel.text isEqualToString:@"智能排序"]) {
-        
-    }
-    
-    
+   self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
 }
 
 - (IBAction)shaixuan:(id)sender
