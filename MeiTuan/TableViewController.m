@@ -114,6 +114,7 @@
 
 - (void)initTableView
 {
+    self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
     self.displayTB = [[UITableView alloc] init];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
@@ -147,7 +148,7 @@
     [self.view addSubview:self.displayTB];
     [self.view addSubview:self.smartSortButton];
 
-   self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
+   
 }
 
 - (IBAction)shaixuan:(id)sender
