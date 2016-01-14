@@ -223,3 +223,23 @@
 }
 
 @end
+
+
+NSArray* names = @[@"美食",@"",@"",@""];
+CGFloat btn_width = self.frame.size.width / names.count;
+UIView* menuView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.frame.size.width,30)];
+[self.view addSubView:menuView];
+for(int i =0 ; i < names.count; i ++) {
+	
+	NSString* name = [names objectAtIndex:i];
+
+	UIButton1 *button = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, btn_width, 30)];
+    [button1 setTitle:name forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button1 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+    [button1 addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
+    button1.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    button1.tag = i;
+    [menuView addSubview:button1];
+
+}
