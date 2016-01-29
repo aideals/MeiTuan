@@ -58,38 +58,25 @@
     self.starScore.incompleteStar = YES;
     self.starScore.scorePercent = 0.2;
 
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 79, 30)];
-    [button setTitle:@"美食" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-    [button addTarget:self action:@selector(meishi:) forControlEvents:UIControlEventTouchDown];
-    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.view addSubview:button];
+    NSArray* names = @[@"美食",@"全城",@"智能排序",@"筛选"];
+    CGFloat btn_width = self.view.frame.size.width / names.count;
+    UIView* menuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     
-    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 79, 30)];
-    [button1 setTitle:@"全城" forState:UIControlStateNormal];
-    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button1 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-    [button1 addTarget:self action:@selector(quancheng:) forControlEvents:UIControlEventTouchDown];
-    button1.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.view addSubview:button1];
+    [self.view addSubview:menuView];
     
-     UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 0, 79, 30)];
-    [button2 setTitle:@"智能排序" forState:UIControlStateNormal];
-    [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button2 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-    [button2 addTarget:self action:@selector(zhinengpaixu:) forControlEvents:UIControlEventTouchDown];
-    button2.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.view addSubview:button2];
+    for(int i =0 ; i < names.count; i ++) {
+        
+        NSString* name = [names objectAtIndex:i];
+        
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, btn_width, 30)];
+        [button setTitle:name forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+        [button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
+        button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        button.tag = i;
+        [menuView addSubview:button];
     
-    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(240, 0, 79, 30)];
-    [button3 setTitle:@"筛选" forState:UIControlStateNormal];
-    [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button3 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-    [button3 addTarget:self action:@selector(shaixuan:) forControlEvents:UIControlEventTouchDown];
-    button3.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.view addSubview:button3];
-
     self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, self.view.bounds.size.width, 20)];
     self.foodButton.backgroundColor = [UIColor grayColor];
     [self.foodButton addTarget:self action:@selector(deleteFoodView:) forControlEvents:UIControlEventTouchDown];
@@ -222,24 +209,9 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+
 @end
 
 
-NSArray* names = @[@"美食",@"",@"",@""];
-CGFloat btn_width = self.frame.size.width / names.count;
-UIView* menuView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.frame.size.width,30)];
-[self.view addSubView:menuView];
-for(int i =0 ; i < names.count; i ++) {
-	
-	NSString* name = [names objectAtIndex:i];
 
-	UIButton1 *button = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, btn_width, 30)];
-    [button1 setTitle:name forState:UIControlStateNormal];
-    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button1 setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-    [button1 addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
-    button1.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    button1.tag = i;
-    [menuView addSubview:button1];
 
-}
