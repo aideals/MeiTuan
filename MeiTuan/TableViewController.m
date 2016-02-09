@@ -64,7 +64,7 @@
     
     [self.view addSubview:menuView];
     
-    for(int i =0 ; i < names.count; i ++) {
+    for(int i = 0 ; i < names.count; i ++) {
         
         NSString* name = [names objectAtIndex:i];
         
@@ -102,7 +102,7 @@
 - (void)initTableView
 {
     self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
-    self.displayTB = [[UITableView alloc] init];
+    self.displayTB = [[UITableView alloc] initWithStyle:nil] ;
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
 }
