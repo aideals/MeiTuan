@@ -76,11 +76,11 @@
         button.titleLabel.font = [UIFont systemFontOfSize:12.0];
         button.tag = i;
         [menuView addSubview:button];
+    }
     
     self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, self.view.bounds.size.width, 20)];
     self.foodButton.backgroundColor = [UIColor grayColor];
     [self.foodButton addTarget:self action:@selector(deleteFoodView:) forControlEvents:UIControlEventTouchDown];
-    
     
     self.allCityButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, self.view.bounds.size.width, 20)];
     self.allCityButton.backgroundColor = [UIColor grayColor];
@@ -102,7 +102,7 @@
 - (void)initTableView
 {
     self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
-    self.displayTB = [[UITableView alloc] initWithStyle:nil] ;
+    self.displayTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
 }
@@ -134,8 +134,6 @@
     self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
     [self.view addSubview:self.displayTB];
     [self.view addSubview:self.smartSortButton];
-
-   
 }
 
 - (IBAction)shaixuan:(id)sender
@@ -168,12 +166,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == self.displayTB) {
-       return  1;
-    }
-    else if ([self.placheHolder isEqualToString:@"董小姐的面"]) {
-        return 3;
-    }
     return 0;
 }
 
