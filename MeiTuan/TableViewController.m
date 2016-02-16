@@ -21,6 +21,7 @@
 @property (nonatomic,strong) UIButton *foodButton;
 @property (nonatomic,strong) UIButton *allCityButton;
 @property (nonatomic,strong) UIButton *smartSortButton;
+@property (nonatomic,strong) UIButton *shaixuanButton;
 @property (nonatomic,strong) NSArray *strArray;
 @property (nonatomic,strong) UITableView *displayTB;
 @end
@@ -68,7 +69,7 @@
         
         NSString* name = [names objectAtIndex:i];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, btn_width, 30)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btn_width * i, 0, btn_width, 30)];
         [button setTitle:name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
@@ -90,6 +91,10 @@
     self.smartSortButton.backgroundColor = [UIColor grayColor];
     [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
 
+    self.shaixuanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.shaixuanButton.backgroundColor = [UIColor grayColor];
+    [self.shaixuanButton addTarget:self action:@selector(deleteShaiXuanView:) forControlEvents:UIControlEventTouchDown];
+    
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
     [self initTableView];
@@ -101,8 +106,7 @@
 
 - (void)initTableView
 {
-    self.strArray = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高", @"人均最低",nil];
-    self.displayTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    self.displayTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
 }
@@ -116,34 +120,36 @@
     [tableData addObject:model];
 }
 
-
-- (IBAction)meishi:(id)sender
+- (IBAction)buttonClickAction:(UIButton *)button
 {
-    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 65);
-    [self.view addSubview:self.displayTB];
-    [self.view addSubview:self.foodButton];
-}
-
-- (IBAction)quancheng:(id)sender
-{
-    
-}
-
-- (IBAction)zhinengpaixu:(UIButton *)sender
-{
-    self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
-    [self.view addSubview:self.displayTB];
-    [self.view addSubview:self.smartSortButton];
-}
-
-- (IBAction)shaixuan:(id)sender
-{
-    
-}
-
-- (IBAction)buttonClickAction
-{
-    
+    switch (button.tag) {
+        case 0:
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 65);
+            [self.view addSubview:self.displayTB];
+            [self.view addSubview:self.foodButton];
+            break;
+        
+        case 1:
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 80);
+            [self.view addSubview:self.displayTB];
+            [self.view addSubview:self.allCityButton];
+            break;
+            
+        case 2:
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
+            [self.view addSubview:self.displayTB];
+            [self.view addSubview:self.smartSortButton];
+            break;
+            
+         case 3:
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 100);
+            [self.view addSubview:self.displayTB];
+            [self.view addSubview:self.shaixuanButton];
+            break;
+        
+        default:
+            break;
+    }
 }
     
 - (IBAction)deleteFoodView:(id)sender
@@ -162,6 +168,12 @@
 {
     [self.displayTB removeFromSuperview];
     [self.smartSortButton removeFromSuperview];
+}
+
+- (IBAction)deleteShaiXuanView:(id)sender
+{
+    [self.displayTB removeFromSuperview];
+    [self.shaixuanButton removeFromSuperview];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
