@@ -25,6 +25,10 @@
 @property (nonatomic,strong) NSArray *strArray;
 @property (nonatomic,strong) UITableView *displayTB;
 @property (nonatomic,strong) UITableView *contentTB;
+@property (nonatomic,strong) NSArray *array1;
+@property (nonatomic,strong) NSArray *array2;
+@property (nonatomic,strong) NSArray *array3;
+@property (nonatomic,strong) NSArray *array4;
 @end
 
 @implementation TableViewController
@@ -103,6 +107,12 @@
     [self.displayTB  reloadData];
     
     tableData = [NSMutableArray array];
+
+    self.array1 = [[NSArray alloc] initWithObjects:@"全部分类",@"美食",nil];
+    self.array2 = [[NSArray alloc] initWithObjects:@"全部",@"优惠买单",nil];
+    self.array3 = [[NSArray alloc] initWithObjects:@"附近",@"全城",@"源园广场", nil];
+    self.array4 = [[NSArray alloc] initWithObjects:@"附近",@"1km",@"3km", nil];
+
 }
 
 - (void)initTableView
@@ -164,12 +174,14 @@
 - (IBAction)deleteFoodView:(id)sender
 {
     [self.displayTB removeFromSuperview];
+    [self.contentTB removeFromSuperview];
     [self.foodButton removeFromSuperview];
 }
 
 - (IBAction)deleteAllCityView:(id)sender
 {
     [self.displayTB removeFromSuperview];
+    [self.contentTB removeFromSuperview];
     [self.allCityButton removeFromSuperview];
 }
 
@@ -187,16 +199,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.displayTB) {
-        return [self.strArray count];
+        return [self.array1 count];
     }
-    else if ([self.placheHolder isEqualToString:@"董小姐的面"]) {
-        return [tableData count];
+
+    else if (tableView == self.contentTB) {
+        return [self.array2 count];
     }
 
     return 0;
@@ -204,13 +217,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    NSInteger row = [indexPath row];
+    UITableViewCell *cell;
+    
+    if (tableView == self.displayTB) {
+        NSString *identifier = @"cell";
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.textLabel.text = [self.array1 objectAtIndex:row];
+        
+    }
+
+    else if (tableView == self.contentTB) {
+        NSString *identifier = @"cell1";
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.textLabel.text = [self.array2 objectAtIndex:row];
+        
     }
     
-    cell.textLabel.text = [self.strArray objectAtIndex:indexPath.row];
     return cell;
 }
 
