@@ -24,6 +24,7 @@
 @property (nonatomic,strong) UIButton *shaixuanButton;
 @property (nonatomic,strong) NSArray *strArray;
 @property (nonatomic,strong) UITableView *displayTB;
+@property (nonatomic,strong) UITableView *contentTB;
 @end
 
 @implementation TableViewController
@@ -109,6 +110,10 @@
     self.displayTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
+
+    self.contentTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.contentTB.delegate = self;
+    self.contentTB.dataSource = self;
 }
 
 - (void)configData
@@ -124,13 +129,17 @@
 {
     switch (button.tag) {
         case 0:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 65);
+            self.displayTB.frame = CGRectMake(0, 30, 140, 89);
+            self.contentTB.frame = CGRectMake(140, 30, 180, 89);
             [self.view addSubview:self.displayTB];
+            [self.view addSubview:self.contentTB];
             [self.view addSubview:self.foodButton];
             break;
         
         case 1:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 80);
+            self.displayTB.frame = CGRectMake(0, 30, 120, 120);
+            self.contentTB.frame = CGRectMake(120, 30, 200, 120);
+            [self.view addSubview:self.contentTB];
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.allCityButton];
             break;
