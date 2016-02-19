@@ -29,6 +29,7 @@
 @property (nonatomic,strong) NSArray *array2;
 @property (nonatomic,strong) NSArray *array3;
 @property (nonatomic,strong) NSArray *array4;
+@property (nonatomic,strong) UIButton *button;
 @end
 
 @implementation TableViewController
@@ -74,14 +75,14 @@
         
         NSString* name = [names objectAtIndex:i];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btn_width * i, 0, btn_width, 30)];
-        [button setTitle:name forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-        [button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
-        button.titleLabel.font = [UIFont systemFontOfSize:12.0];
-        button.tag = i;
-        [menuView addSubview:button];
+        self.button = [[UIButton alloc] initWithFrame:CGRectMake(btn_width * i, 0, btn_width, 30)];
+        [self.button setTitle:name forState:UIControlStateNormal];
+        [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+        [self.button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
+        self.button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        self.button.tag = i;
+        [menuView addSubview:self.button];
     }
     
     self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, self.view.bounds.size.width, 20)];
@@ -104,7 +105,6 @@
     
     [self initTableView];
     [self configData];
-    [self.displayTB  reloadData];
     
     tableData = [NSMutableArray array];
 
@@ -120,7 +120,7 @@
     self.displayTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.displayTB.delegate = self;
     self.displayTB.dataSource = self;
-
+    
     self.contentTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.contentTB.delegate = self;
     self.contentTB.dataSource = self;
@@ -144,6 +144,8 @@
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.contentTB];
             [self.view addSubview:self.foodButton];
+            [self.displayTB reloadData];
+            [self.contentTB reloadData];
             break;
         
         case 1:
@@ -152,6 +154,8 @@
             [self.view addSubview:self.contentTB];
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.allCityButton];
+            [self.displayTB reloadData];
+            [self.contentTB reloadData];
             break;
             
         case 2:
@@ -204,14 +208,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.displayTB) {
-        return [self.array1 count];
+    if (self.button.tag == 0) {
+        if (tableView == self.displayTB) {
+            return [self.array1 count];
+        }
+        else if (tableView == self.contentTB) {
+            return [self.array2 count];
+        }
+ 
     }
-
-    else if (tableView == self.contentTB) {
-        return [self.array2 count];
+    else if (self.button.tag == 1) {
+        if (tableView == self.displayTB) {
+            return [self.array3 count];
+        }
+        else if (tableView == self.contentTB) {
+            return [self.array4 count];
+        }
     }
-
+    
     return 0;
 }
 
@@ -220,25 +234,42 @@
     NSInteger row = [indexPath row];
     UITableViewCell *cell;
     
-    if (tableView == self.displayTB) {
-        NSString *identifier = @"cell";
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    if (self.button.tag == 0) {
+        if (tableView == self.displayTB) {
+            NSString *identifier = @"cell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            cell.textLabel.text = [self.array1 objectAtIndex:row];
+            
         }
-        cell.textLabel.text = [self.array1 objectAtIndex:row];
+        
+        else if (tableView == self.contentTB) {
+            
+            cell.textLabel.text = [self.array2 objectAtIndex:row];
+           
+        }
         
     }
-
-    else if (tableView == self.contentTB) {
-        NSString *identifier = @"cell1";
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    
+     else if (self.button.tag == 1) {
+        if (tableView == self.displayTB) {
+            NSString *identifier = @"cell1";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            cell.textLabel.text = [self.array3 objectAtIndex:row];
+            
         }
-        cell.textLabel.text = [self.array2 objectAtIndex:row];
-        
+        else if (tableView == self.contentTB) {
+            
+            cell.textLabel.text = [self.array4 objectAtIndex:row];
+            
+        }
     }
+    
     
     return cell;
 }
@@ -255,7 +286,6 @@
     
     [self presentViewController:nav animated:YES completion:nil];
 }
-
 
 @end
 
