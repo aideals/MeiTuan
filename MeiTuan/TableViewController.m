@@ -29,6 +29,8 @@
 @property (nonatomic,strong) NSArray *array2;
 @property (nonatomic,strong) NSArray *array3;
 @property (nonatomic,strong) NSArray *array4;
+@property (nonatomic,strong) NSArray *array5;
+@property (nonatomic,strong) NSArray *array6;
 @property (nonatomic,strong) UIButton *button;
 @end
 
@@ -112,6 +114,8 @@
     self.array2 = [[NSArray alloc] initWithObjects:@"全部",@"优惠买单",nil];
     self.array3 = [[NSArray alloc] initWithObjects:@"附近",@"全城",@"源园广场", nil];
     self.array4 = [[NSArray alloc] initWithObjects:@"附近",@"1km",@"3km", nil];
+    self.array5 = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高",@"人均最低", nil];
+    self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用",@"用餐人数",@"餐厅服务", nil];
 
 }
 
@@ -137,6 +141,8 @@
 
 - (IBAction)buttonClickAction:(UIButton *)button
 {
+    self.button = button;
+    
     switch (button.tag) {
         case 0:
             self.displayTB.frame = CGRectMake(0, 30, 140, 89);
@@ -225,6 +231,9 @@
             return [self.array4 count];
         }
     }
+    else if (self.button.tag == 2) {
+        return [self.array5 count];
+    }
     
     return 0;
 }
@@ -236,7 +245,7 @@
     
     if (self.button.tag == 0) {
         if (tableView == self.displayTB) {
-            NSString *identifier = @"cell";
+            NSString *identifier = @"cell0";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -246,7 +255,11 @@
         }
         
         else if (tableView == self.contentTB) {
-            
+            NSString *identifier = @"cell1";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
             cell.textLabel.text = [self.array2 objectAtIndex:row];
            
         }
@@ -255,7 +268,7 @@
     
      else if (self.button.tag == 1) {
         if (tableView == self.displayTB) {
-            NSString *identifier = @"cell1";
+            NSString *identifier = @"cell2";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -264,11 +277,25 @@
             
         }
         else if (tableView == self.contentTB) {
-            
+            NSString *identifier = @"cell3";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+                
+            }
             cell.textLabel.text = [self.array4 objectAtIndex:row];
             
         }
     }
+    
+     else if (self.button.tag == 2) {
+         NSString *identifier = @"cell4";
+         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+         if (cell == nil) {
+             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+         }
+         cell.textLabel.text = [self.array5 objectAtIndex:row];
+     }
     
     
     return cell;
