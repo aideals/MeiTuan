@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TableCell : UITableViewCell
+@property (strong,nonatomic) UILabel *titleLabel;
+@property (strong,nonatomic) IBOutlet UISwitch *buttonSwitch;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 

@@ -10,6 +10,8 @@
 #import "MapViewController.h"
 #import "StarScore.h"
 #import "MeiTuanModel.h"
+#import "TableCell.h"
+#import "TableModel.h"
 
 @interface TableViewController () <UISearchBarDelegate>
 {
@@ -132,11 +134,8 @@
 
 - (void)configData
 {
-    MeiTuanModel *model = [[MeiTuanModel alloc] init];
-    [model setTitle:@"董小姐的面（西关店）"];
-    [model setImage1:@"dongxiaojiedemian.png"];
-    
-    [tableData addObject:model];
+    TableModel *model = [[TableModel alloc] init];
+    [model setTitleLabel:]
 }
 
 - (IBAction)buttonClickAction:(UIButton *)button
