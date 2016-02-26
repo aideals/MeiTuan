@@ -11,7 +11,6 @@
 #import "StarScore.h"
 #import "MeiTuanModel.h"
 #import "TableCell.h"
-#import "TableModel.h"
 
 @interface TableViewController () <UISearchBarDelegate>
 {
@@ -108,7 +107,7 @@
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
     [self initTableView];
-    [self configData];
+    
     
     tableData = [NSMutableArray array];
 
@@ -117,7 +116,7 @@
     self.array3 = [[NSArray alloc] initWithObjects:@"附近",@"全城",@"源园广场", nil];
     self.array4 = [[NSArray alloc] initWithObjects:@"附近",@"1km",@"3km", nil];
     self.array5 = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高",@"人均最低", nil];
-    self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用",@"用餐人数",@"餐厅服务", nil];
+    self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用", nil];
 
 }
 
@@ -130,12 +129,6 @@
     self.contentTB = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.contentTB.delegate = self;
     self.contentTB.dataSource = self;
-}
-
-- (void)configData
-{
-    TableModel *model = [[TableModel alloc] init];
-    [model setTitleLabel:]
 }
 
 - (IBAction)buttonClickAction:(UIButton *)button
@@ -174,6 +167,11 @@
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.shaixuanButton];
             break;
+        
+        case 4:
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 200);
+            [self.view addSubview:self.displayTB];
+            
         
         default:
             break;
@@ -233,6 +231,10 @@
     else if (self.button.tag == 2) {
         return [self.array5 count];
     }
+    else if (self.button.tag == 3) {
+        return [self.array6 count];
+    }
+    
     
     return 0;
 }
@@ -294,6 +296,15 @@
              cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
          }
          cell.textLabel.text = [self.array5 objectAtIndex:row];
+     }
+    
+     else if (self.button.tag == 3) {
+         NSString *identifier = @"cell5";
+         TableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+         if (cell == nil) {
+             cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+         }
+         cell.textLabel.text = [self.array6 objectAtIndex:row];
      }
     
     

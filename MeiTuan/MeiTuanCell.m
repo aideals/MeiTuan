@@ -26,9 +26,9 @@
     self.starScore = [[UIImageView alloc] initWithFrame:CGRectMake(40, 50, 50, 30)];
    
     
-    [self addSubview:_titleLabel];
-    [self addSubview:_imageLabel];
-    [self addSubview:_starScore];
+    [self.contentView addSubview:_titleLabel];
+    [self.contentView addSubview:_imageLabel];
+    [self.contentView addSubview:_starScore];
 }
 
 @end

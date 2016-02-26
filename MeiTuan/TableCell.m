@@ -27,8 +27,8 @@
     [self.buttonSwitch setOn:NO];
     [self.buttonSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
-    [self addSubview:self.titleLabel];
-    [self addSubview:self.buttonSwitch];
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.buttonSwitch];
 
 }
 

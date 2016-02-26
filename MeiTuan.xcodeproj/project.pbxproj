@@ -50,7 +50,6 @@
 		06DF0AFD1C06955600DC04A0 /* MeiTuanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DF0AFC1C06955600DC04A0 /* MeiTuanCell.m */; };
 		06E96B451C01B06B00833657 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E96B441C01B06B00833657 /* MapViewController.m */; };
 		1D2345E31C7B5C9900C57B17 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2345E21C7B5C9900C57B17 /* MyPoint.m */; };
-		1D29ED571C7F43A70030D423 /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D29ED561C7F43A70030D423 /* TableModel.m */; };
 		1D36FE701C7DDB380013ADE2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D36FE6F1C7DDB380013ADE2 /* CoreLocation.framework */; };
 		1D36FE721C7DDB4C0013ADE2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D36FE711C7DDB4C0013ADE2 /* MapKit.framework */; };
 		1D36FE751C7DDBE60013ADE2 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D36FE741C7DDBE60013ADE2 /* TableCell.m */; };
@@ -125,8 +124,6 @@
 		06E96B441C01B06B00833657 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1D2345E21C7B5C9900C57B17 /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPoint.m; path = ../MyPoint.m; sourceTree = "<group>"; };
 		1D2345E61C7B5CD400C57B17 /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPoint.h; path = ../MyPoint.h; sourceTree = "<group>"; };
-		1D29ED551C7F43A70030D423 /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
-		1D29ED561C7F43A70030D423 /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
 		1D36FE6F1C7DDB380013ADE2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1D36FE711C7DDB4C0013ADE2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1D36FE731C7DDBE60013ADE2 /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
@@ -204,8 +201,6 @@
 				0687D4D91BFD768E007CCC08 /* TableViewController.m */,
 				1D36FE731C7DDBE60013ADE2 /* TableCell.h */,
 				1D36FE741C7DDBE60013ADE2 /* TableCell.m */,
-				1D29ED551C7F43A70030D423 /* TableModel.h */,
-				1D29ED561C7F43A70030D423 /* TableModel.m */,
 				06DF0AFB1C06955600DC04A0 /* MeiTuanCell.h */,
 				06DF0AFC1C06955600DC04A0 /* MeiTuanCell.m */,
 				069001A81C118CD1006E0BBF /* MeiTuanModel.h */,
@@ -397,7 +392,6 @@
 				069C1F6A1C0D8D04006DC952 /* StarScore.m in Sources */,
 				06A37D921BEB3C3600A084D1 /* PushSearchViewController.m in Sources */,
 				06D675E41BE7530800296246 /* TuanGouViewController.m in Sources */,
-				1D29ED571C7F43A70030D423 /* TableModel.m in Sources */,
 				1D2345E31C7B5C9900C57B17 /* MyPoint.m in Sources */,
 				1D36FE751C7DDBE60013ADE2 /* TableCell.m in Sources */,
 				06D675BE1BE7458E00296246 /* MeiTuanAppDelegate.m in Sources */,
