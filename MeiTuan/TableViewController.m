@@ -300,7 +300,7 @@
     
      else if (self.button.tag == 3) {
          NSString *identifier = @"cell5";
-         TableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
          if (cell == nil) {
              cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
          }
