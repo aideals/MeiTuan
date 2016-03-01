@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+#define ButtonNumber  8
+
 @interface TableCellSecond : UITableViewCell
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,copy) NSArray *array;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
-
 
 @end

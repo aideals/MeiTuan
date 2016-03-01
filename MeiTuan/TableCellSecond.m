@@ -22,17 +22,12 @@
 
 - (void)initData
 {
-    self.array = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3~4人餐",@"5~10人餐",@"10人以上",@"代金劵",@"其它",nil];
-    CGFloat button_wid = self.frame.size.width / self.array.count;
-    
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 35, 30)];
     self.titleLabel.font = [UIFont systemFontOfSize:25.0];
 
-    for (int i = 0; i < self.array.count; i++) {
+    for (int i = 0; i < ButtonNumber; i ++) {
         
-        NSString *name = [self.array objectAtIndex:i];
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(button_wid * i, 20, 35, 30)];
-        [button setTitle:name forState:UIControlStateNormal];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i, 20, 35, 30)];
         [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.2]];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];

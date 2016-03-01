@@ -11,6 +11,7 @@
 #import "StarScore.h"
 #import "MeiTuanModel.h"
 #import "TableCell.h"
+#import "TableCellSecond.h"
 
 @interface TableViewController () <UISearchBarDelegate>
 {
