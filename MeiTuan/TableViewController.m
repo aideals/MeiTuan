@@ -78,14 +78,14 @@
         
         NSString* name = [names objectAtIndex:i];
         
-        self.button = [[UIButton alloc] initWithFrame:CGRectMake(btn_width * i, 0, btn_width, 30)];
-        [self.button setTitle:name forState:UIControlStateNormal];
-        [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
-        [self.button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
-        self.button.titleLabel.font = [UIFont systemFontOfSize:12.0];
-        self.button.tag = i;
-        [menuView addSubview:self.button];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btn_width * i, 0, btn_width, 30)];
+        [button setTitle:name forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.1]];
+        [button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchDown];
+        button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        button.tag = i;
+        [menuView addSubview:button];
     }
     
     self.foodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, self.view.bounds.size.width, 20)];
@@ -160,18 +160,15 @@
             self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 240);
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.smartSortButton];
+            [self.displayTB reloadData];
             break;
             
          case 3:
             self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 100);
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.shaixuanButton];
+            [self.displayTB reloadData];
             break;
-        
-        case 4:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 200);
-            [self.view addSubview:self.displayTB];
-            
         
         default:
             break;
