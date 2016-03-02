@@ -28,7 +28,7 @@
     for (int i = 0; i < ButtonNumber; i ++) {
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i, 20, 35, 30)];
-        [button setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.2]];
+        [button setBackgroundColor:[UIColor whiteColor]];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];
         button.tag = i;

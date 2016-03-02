@@ -33,6 +33,9 @@
 @property (nonatomic,strong) NSArray *array4;
 @property (nonatomic,strong) NSArray *array5;
 @property (nonatomic,strong) NSArray *array6;
+@property (nonatomic,strong) NSArray *array7;
+@property (nonatomic,copy) NSArray *name;
+@property (nonatomic,copy) NSArray *name1;
 @property (nonatomic,strong) UIButton *button;
 @end
 
@@ -101,7 +104,7 @@
     self.smartSortButton.backgroundColor = [UIColor grayColor];
     [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
 
-    self.shaixuanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, 20)];
+    self.shaixuanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 210, self.view.bounds.size.width, 20)];
     self.shaixuanButton.backgroundColor = [UIColor grayColor];
     [self.shaixuanButton addTarget:self action:@selector(deleteShaiXuanView:) forControlEvents:UIControlEventTouchDown];
     
@@ -118,7 +121,9 @@
     self.array4 = [[NSArray alloc] initWithObjects:@"附近",@"1km",@"3km", nil];
     self.array5 = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高",@"人均最低", nil];
     self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用", nil];
-
+    self.array7 = [[NSArray alloc] initWithObjects:@"用餐人数",@"餐厅服务",nil];
+    self.name = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5~10人餐",@"10人以上",@"代金券",@"其它",nil];
+    self.name1 = [[NSArray alloc] initWithObjects:@"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
 }
 
 - (void)initTableView
@@ -165,7 +170,7 @@
             break;
             
          case 3:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 100);
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 200);
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.shaixuanButton];
             [self.displayTB reloadData];
@@ -231,6 +236,7 @@
     }
     else if (self.button.tag == 3) {
         return [self.array6 count];
+        return [self.array7 count];
     }
     
     
@@ -303,6 +309,13 @@
              cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
          }
          cell.textLabel.text = [self.array6 objectAtIndex:row];
+         
+         NSString *identifier1 = @"cell6";
+         cell = [tableView dequeueReusableCellWithIdentifier:identifier1];
+         if (cell == nil) {
+             cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1];
+         }
+         cell.textLabel.text = [self.array7 objectAtIndex:row];
      }
     
     
