@@ -22,13 +22,14 @@
 
 - (void)initData
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 35, 30)];
+    self.frame = CGRectMake(10, 60, self.frame.size.width, 100);
+      self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 35, 30)];
     self.titleLabel.font = [UIFont systemFontOfSize:25.0];
 
     for (int i = 0; i < ButtonNumber; i ++) {
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i, 20, 35, 30)];
-        [button setBackgroundColor:[UIColor whiteColor]];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i, 100, 35, 30)];
+        [button setBackgroundColor:[UIColor greenColor]];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];
         button.tag = i;
