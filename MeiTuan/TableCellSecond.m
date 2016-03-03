@@ -22,20 +22,22 @@
 
 - (void)initData
 {
-    self.frame = CGRectMake(10, 60, self.frame.size.width, 100);
-      self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 35, 30)];
-    self.titleLabel.font = [UIFont systemFontOfSize:25.0];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 35, 30)];
+    titleLabel.font = [UIFont systemFontOfSize:25.0];
 
-    for (int i = 0; i < ButtonNumber; i ++) {
-        
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(35 * i, 100, 35, 30)];
+    for (int i = 0; i < ButtonX; i ++) {
+        for (int j = 0; j < ButtonY; j ++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10 * i + 20, 15 * j + 25, 35, 30)];
         [button setBackgroundColor:[UIColor greenColor]];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];
         button.tag = i;
-        [self addSubview:button];
+        [self.contentView addSubview:button];
+    
+        }
     }
     
+    [self.contentView addSubview:titleLabel];
 }
 
 - (IBAction)buttonClickAction:(id)sender
