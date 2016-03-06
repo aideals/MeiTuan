@@ -22,15 +22,13 @@
 
 - (void)initLayout
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0, 4.0, 35, 25)];
-    self.titleLabel.font = [UIFont systemFontOfSize:25.0];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 60, 50)];
     self.buttonSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(250.0, 4.0, 30, 25)];
     [self.buttonSwitch setOn:NO];
     [self.buttonSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
-    [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.buttonSwitch];
-
+    [self.contentView addSubview:self.titleLabel];
 }
 
 - (void)switchAction:(id)sender

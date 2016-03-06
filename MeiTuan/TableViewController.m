@@ -310,13 +310,7 @@
          }
          cell.textLabel.text = [self.array6 objectAtIndex:row];
          
-         NSString *identifier1 = @"cell6";
-         cell = [tableView dequeueReusableCellWithIdentifier:identifier1];
-         if (cell == nil) {
-             cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1];
-         }
-         cell.textLabel.text = [self.array7 objectAtIndex:row];
-     }
+    }
     
     
     return cell;

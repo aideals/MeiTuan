@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-#define ButtonX  8
-#define ButtonY  2
+#define ButtonX  3
+#define ButtonY  5
 
 @interface TableCellSecond : UITableViewCell
+@property (nonatomic,strong) UILabel *titleLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
