@@ -14,17 +14,19 @@
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self initData];
+        [self initLayout];
     }
     
     return self;
 }
 
-- (void)initData
+- (void)initLayout
 {
-     for (int i = 0; i < ButtonX; i ++) {
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, 60, 35)];
+    
+    for (int i = 0; i < ButtonX; i ++) {
         for (int j = 0; j < ButtonY; j ++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10, 90, 60, 30)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * i, ButtonY + (30 + ButtonY) * j, 60, 30)];
         [button setBackgroundColor:[UIColor blueColor]];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];
@@ -32,8 +34,9 @@
         [self.contentView addSubview:button];
     
         }
+      
     }
-    
+    [self.contentView addSubview:self.titleLabel];
 }
 
 - (IBAction)buttonClickAction:(id)sender

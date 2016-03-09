@@ -22,7 +22,7 @@
 
 - (void)initLayout
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 60, 50)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, 60, 50)];
     self.buttonSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(250.0, 4.0, 30, 25)];
     [self.buttonSwitch setOn:NO];
     [self.buttonSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
