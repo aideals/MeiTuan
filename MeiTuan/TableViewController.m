@@ -37,8 +37,6 @@
 @property (nonatomic,copy) NSArray *name;
 @property (nonatomic,copy) NSArray *name1;
 @property (nonatomic,strong) UIButton *button;
-@property (nonatomic) UILabel *titleLabel0;
-@property (nonatomic) UILabel *titleLabel1;
 @end
 
 @implementation TableViewController
@@ -247,13 +245,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row <= 3) {
+    if (indexPath.row >= 2) {
         return 40.0;
     }
-    else {
-        return 0;
-    }
-
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -317,42 +313,30 @@
      }
     
      else if (self.button.tag == 3) {
-         NSString *identifier = @"cell5";
-         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
          if (indexPath.row <= 1) {
+             NSString *identifier = @"cell5";
+             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
              if (cell == nil) {
                  cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 }
-             self.titleLabel0 = [[UILabel alloc] initWithFrame:CGRectMake(20, 2, 100, 45)];
-             UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
-             [self.titleLabel0 setFont:font];
-             self.titleLabel0.text = [self.array6 objectAtIndex:indexPath.row];
-             [cell.contentView addSubview:self.titleLabel0];
-         }
-         else  {
-             return 0;
+             
          }
          
-         if (indexPath.row <= 3) {
+         
+         else {
+             NSString *identifier = @"cell6";
+             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+             
              if (cell == nil) {
                  cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
              }
-             self.titleLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, 85, 100, 45)];
-             UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
-             [self.titleLabel1 setFont:font];
-             self.titleLabel1.text = [self.array7 objectAtIndex:indexPath.row];
-             [cell.contentView addSubview:self.titleLabel1];
+             
              
          }
-         else {
-             return 0;
-         }
-         
-         return cell;
      }
     
-    
-    return cell;
+         return cell;
 }
 
 - (IBAction)back:(id)sender

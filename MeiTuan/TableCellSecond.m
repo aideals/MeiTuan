@@ -22,7 +22,9 @@
 
 - (void)initLayout
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, 60, 35)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 85, 100, 45)];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
+    [self.titleLabel setFont:font];
     
     for (int i = 0; i < ButtonX; i ++) {
         for (int j = 0; j < ButtonY; j ++) {
