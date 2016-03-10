@@ -333,7 +333,7 @@
              return 0;
          }
          
-         if (indexPath.row <= 3) {
+         if (indexPath.row => 2) {
              if (cell == nil) {
                  cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
              }
