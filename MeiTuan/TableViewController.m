@@ -243,17 +243,6 @@
     return 0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    if (indexPath.row <= 1) {
-        return 40.0;
-    }
-    else {
-        return 90.0;
-    }
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
