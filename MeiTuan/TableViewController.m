@@ -322,7 +322,7 @@
              if (cell == nil) {
                  cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 }
-             
+             cell.textLabel.text = [self.array6 objectAtIndex:indexPath.row];
          }
          
          
@@ -333,7 +333,7 @@
              if (cell == nil) {
                  cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
              }
-             
+             cell.textLabel.text = [self.array7 objectAtIndex:indexPath.row];
              
          }
      }
