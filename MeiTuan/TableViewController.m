@@ -170,7 +170,7 @@
             break;
             
          case 3:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 200);
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 300);
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.shaixuanButton];
             [self.displayTB reloadData];
@@ -212,6 +212,20 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.button.tag == 3){
+        if (indexPath.row <= 1) {
+            return 50.0;
+        }
+        else {
+            return 90.0;
+        }
+    }
+    return 44;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.button.tag == 0) {
@@ -235,8 +249,8 @@
         return [self.array5 count];
     }
     else if (self.button.tag == 3) {
-        return [self.array6 count];
-        return [self.array7 count];
+        return [self.array6 count] + [self.array7 count];
+        
     }
     
     
@@ -250,9 +264,9 @@
     
     
     if (self.button.tag == 0) {
+        NSString *identifier = @"cell0";
         if (tableView == self.displayTB) {
-            NSString *identifier = @"cell0";
-            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+           cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
@@ -261,7 +275,6 @@
         }
         
         else if (tableView == self.contentTB) {
-            NSString *identifier = @"cell1";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -273,8 +286,8 @@
     }
     
      else if (self.button.tag == 1) {
-        if (tableView == self.displayTB) {
-            NSString *identifier = @"cell2";
+         NSString *identifier = @"cell1";
+         if (tableView == self.displayTB) {
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -283,7 +296,6 @@
             
         }
         else if (tableView == self.contentTB) {
-            NSString *identifier = @"cell3";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -295,7 +307,7 @@
     }
     
      else if (self.button.tag == 2) {
-         NSString *identifier = @"cell4";
+         NSString *identifier = @"cell2";
          cell = [tableView dequeueReusableCellWithIdentifier:identifier];
          if (cell == nil) {
              cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -305,7 +317,7 @@
     
      else if (self.button.tag == 3) {
          if (indexPath.row <= 1) {
-             NSString *identifier = @"cell5";
+             NSString *identifier = @"cell3";
              cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             
              if (cell == nil) {
@@ -316,13 +328,13 @@
          
          
          else {
-             NSString *identifier = @"cell6";
+             NSString *identifier = @"cell4";
              cell = [tableView dequeueReusableCellWithIdentifier:identifier];
              
              if (cell == nil) {
                  cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
              }
-             cell.textLabel.text = [self.array7 objectAtIndex:indexPath.row];
+             cell.textLabel.text = [self.array7 objectAtIndex:indexPath.row - 2];
              
          }
      }
