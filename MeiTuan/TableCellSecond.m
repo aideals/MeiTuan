@@ -22,10 +22,10 @@
 
 - (void)initLayout
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, -10, 100, 45)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 3, 100, 45)];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
     self.titleLabel.numberOfLines = 2;
-    self.titleLabel.text = @"用餐人数 餐厅服务";
+    self.titleLabel.text = @"用餐人数 \n 餐厅服务";
    
     for (int i = 0; i < ButtonX; i ++) {
         for (int j = 0; j < ButtonY; j ++) {
