@@ -104,7 +104,7 @@
     self.smartSortButton.backgroundColor = [UIColor grayColor];
     [self.smartSortButton addTarget:self action:@selector(deleteSmartSortView:) forControlEvents:UIControlEventTouchDown];
 
-    self.shaixuanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 310, self.view.bounds.size.width, 20)];
+    self.shaixuanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 360, self.view.bounds.size.width, 20)];
     self.shaixuanButton.backgroundColor = [UIColor grayColor];
     [self.shaixuanButton addTarget:self action:@selector(deleteShaiXuanView:) forControlEvents:UIControlEventTouchDown];
     
@@ -170,7 +170,7 @@
             break;
             
          case 3:
-            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 300);
+            self.displayTB.frame = CGRectMake(0, 30, self.view.bounds.size.width, 350);
             [self.view addSubview:self.displayTB];
             [self.view addSubview:self.shaixuanButton];
             [self.displayTB reloadData];
@@ -219,7 +219,7 @@
             return 50.0;
         }
         else {
-            return 90.0;
+            return 110.0;
         }
     }
     return 44;
@@ -334,7 +334,9 @@
              if (cell == nil) {
                  cell = [[TableCellSecond alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
              }
-             
+            
+             TableCellSecond *_cell = (TableCellSecond *)cell;
+             _cell.titleLabel.text = _array7[indexPath.row - 2];
              
          }
      }

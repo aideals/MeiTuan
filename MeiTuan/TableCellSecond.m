@@ -22,18 +22,24 @@
 
 - (void)initLayout
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 3, 100, 45)];
+    NSString *title;
+    
+    self.buttonName = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5～10人餐",@"10人以上",@"代金劵",@"其它", nil];
+    
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 45)];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
     self.titleLabel.numberOfLines = 2;
-    self.titleLabel.text = @"用餐人数 \n 餐厅服务";
+    self.titleLabel.font = font;
    
-    for (int i = 0; i < ButtonX; i ++) {
-        for (int j = 0; j < ButtonY; j ++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * i, ButtonY + (30 + ButtonY) * j, 60, 30)];
-        [button setBackgroundColor:[UIColor blueColor]];
+    for (int i = 0; i < 2; i ++) {
+        for (int j = 0; j < 4; j ++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
+        button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
         button.titleLabel.font = [UIFont systemFontOfSize:10.0];
-        button.tag = i;
+        button.tag = i * 4 + j;
+        title = [self.buttonName objectAtIndex:i * 4 + j];
+        [button setTitle:title forState:UIControlStateNormal];
         [self.contentView addSubview:button];
     
         }

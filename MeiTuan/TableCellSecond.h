@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-#define ButtonX  3
-#define ButtonY  5
+#define ButtonX  14
+#define ButtonY  3
 
 @interface TableCellSecond : UITableViewCell
 @property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,copy) NSArray *buttonName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
