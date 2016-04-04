@@ -122,7 +122,6 @@
     self.array5 = [[NSArray alloc] initWithObjects:@"智能排序",@"好评优先",@"距离优先",@"人均最高",@"人均最低", nil];
     self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用", nil];
     self.array7 = [[NSArray alloc] initWithObjects:@"用餐人数",@"餐厅服务",nil];
-    self.name = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5~10人餐",@"10人以上",@"代金券",@"其它",nil];
     self.name1 = [[NSArray alloc] initWithObjects:@"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
 }
 
