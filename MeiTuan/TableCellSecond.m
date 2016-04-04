@@ -15,6 +15,7 @@
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initLayout];
+        [self buttonTitle];
     }
     
     return self;
@@ -33,14 +34,14 @@
    
     for (int i = 0; i < 2; i ++) {
         for (int j = 0; j < 4; j ++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
-        button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
-        [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
-        button.titleLabel.font = [UIFont systemFontOfSize:13.0];
-        button.tag = i * 4 + j;
-        title = [self.buttonName objectAtIndex:i * 4 + j];
-        [button setTitle:title forState:UIControlStateNormal];
-        [self.contentView addSubview:button];
+         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
+         button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
+         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
+         button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+         button.tag = i * 4 + j;
+         title = [self.buttonName objectAtIndex:i * 4 + j];
+         [button setTitle:title forState:UIControlStateNormal];
+         [self.contentView addSubview:button];
     
         }
       
@@ -48,8 +49,9 @@
     [self.contentView addSubview:self.titleLabel];
 }
 
-- (void)buttonTitle:(NSMutableArray*)currentButtonTitleArray
+- (void)buttonTitle
 {
+    NSMutableArray *currentButtonTitleArray;
     NSUInteger row;
     NSString *title;
     
@@ -61,7 +63,7 @@
     
     for (int i = 0; i < currentButtonTitleArray.count; i++) {
         title = [currentButtonTitleArray objectAtIndex:i];
-        
+       
     }
     
 }
