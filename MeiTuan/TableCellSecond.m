@@ -15,7 +15,7 @@
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initLayout];
-        [self buttonTitle];
+        
     }
     
     return self;
@@ -39,7 +39,7 @@
          [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
          button.titleLabel.font = [UIFont systemFontOfSize:13.0];
          button.tag = i * 4 + j;
-         title = [self.buttonName objectAtIndex:i * 4 + j];
+         title = [self.buttonName objectAtIndex:button.tag];
          [button setTitle:title forState:UIControlStateNormal];
          [self.contentView addSubview:button];
     
@@ -49,22 +49,25 @@
     [self.contentView addSubview:self.titleLabel];
 }
 
-- (void)buttonTitle
+- (void)buttonTitle:(NSMutableArray *)currentButtonTitleArray
 {
-    NSMutableArray *currentButtonTitleArray;
+    NSInteger x = self.buttonName.count;
     NSUInteger row;
+    UIView *view;
+    NSInteger tag;
     NSString *title;
     
-    row = self.buttonName.count / 8 + (self.buttonName.count % 8 > 0 ? 1 : 0);
+    row = x / 8 + (x % 8 > 0 ? 1 : 0);
     
     for (NSUInteger i = row / 8; i < self.buttonName.count && i < row * 8 + 8; i++) {
         [currentButtonTitleArray addObject:self.buttonName[i]];
+        tag = [view viewWithTag:i];
     }
     
-    for (int i = 0; i < currentButtonTitleArray.count; i++) {
-        title = [currentButtonTitleArray objectAtIndex:i];
-       
+    for (NSInteger j = 0; j < currentButtonTitleArray.count; j ++) {
+        title = [currentButtonTitleArray objectAtIndex:j];
     }
+   
     
 }
 
