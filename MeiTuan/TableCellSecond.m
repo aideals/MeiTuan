@@ -38,7 +38,7 @@
          button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
          [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
          button.titleLabel.font = [UIFont systemFontOfSize:13.0];
-         button.tag = i * 4 + j;
+         button.tag = i * 4 + j + ButtonTag;
          title = [self.buttonName objectAtIndex:button.tag];
          [button setTitle:title forState:UIControlStateNormal];
          [self.contentView addSubview:button];
@@ -49,23 +49,22 @@
     [self.contentView addSubview:self.titleLabel];
 }
 
-- (void)buttonTitle:(NSMutableArray *)currentButtonTitleArray
+- (void)buttonTitle:(UIButton *)button
 {
     NSInteger x = self.buttonName.count;
     NSUInteger row;
-    UIView *view;
-    NSInteger tag;
+    NSMutableArray *currentButtonTitleArray = [[NSMutableArray alloc] init];
     NSString *title;
     
     row = x / 8 + (x % 8 > 0 ? 1 : 0);
     
     for (NSUInteger i = row / 8; i < self.buttonName.count && i < row * 8 + 8; i++) {
         [currentButtonTitleArray addObject:self.buttonName[i]];
-        tag = [view viewWithTag:i];
+    
     }
     
-    for (NSInteger j = 0; j < currentButtonTitleArray.count; j ++) {
-        title = [currentButtonTitleArray objectAtIndex:j];
+    for (NSInteger j = 0; j < currentButtonTitleArray.count; j++) {
+        
     }
    
     
@@ -77,6 +76,5 @@
 {
     
 }
-
 
 @end

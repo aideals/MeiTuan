@@ -11,6 +11,7 @@
 
 #define ButtonX  14
 #define ButtonY  3
+#define ButtonTag 150
 
 @interface TableCellSecond : UITableViewCell
 @property (nonatomic,strong) UILabel *titleLabel;
