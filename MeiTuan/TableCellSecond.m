@@ -49,23 +49,35 @@
     [self.contentView addSubview:self.titleLabel];
 }
 
-- (void)buttonTitle:(UIButton *)button
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    
+    NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
+    [cell setButtonsTitles];
+    
+    return cell;
+}
+
+- (NSIndexPath *)getCurrentShowButtonTitlesWithIndexPath
 {
     NSInteger x = self.buttonName.count;
     NSUInteger row;
-    NSMutableArray *currentButtonTitleArray = [[NSMutableArray alloc] init];
-    NSString *title;
+    NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
     row = x / 8 + (x % 8 > 0 ? 1 : 0);
     
-    for (NSUInteger i = row / 8; i < self.buttonName.count && i < row * 8 + 8; i++) {
-        [currentButtonTitleArray addObject:self.buttonName[i]];
-    
+    for (NSUInteger i = row / 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
+        [currentButtonIndex addObject:self.buttonName[i]];
     }
+}
+
+
+
+
+- (void)setButtonTitles:(NSArray *)currentShowTitles
+{
     
-    for (NSInteger j = 0; j < currentButtonTitleArray.count; j++) {
-        
-    }
    
     
 }
