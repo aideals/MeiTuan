@@ -37,10 +37,7 @@
          UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
          button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
          [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
-         button.titleLabel.font = [UIFont systemFontOfSize:13.0];
          button.tag = i * 4 + j + ButtonTag;
-         title = [self.buttonName objectAtIndex:button.tag];
-         [button setTitle:title forState:UIControlStateNormal];
          [self.contentView addSubview:button];
     
         }
@@ -54,12 +51,12 @@
     UITableViewCell *cell;
     
     NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
-    [cell setButtonsTitles];
+    [self setButtonTitles:currentShowTitles];
     
     return cell;
 }
 
-- (NSIndexPath *)getCurrentShowButtonTitlesWithIndexPath
+- (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger x = self.buttonName.count;
     NSUInteger row;
@@ -75,10 +72,13 @@
 
 
 
-- (void)setButtonTitles:(NSArray *)currentShowTitles
+- (void)setButtonTitles:(NSArray *)array
 {
+    NSString *title;
     
-   
+    self.button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    title = [self.buttonName objectAtIndex:self.button.tag];
+    [self.button setTitle:title forState:UIControlStateNormal];
     
 }
 

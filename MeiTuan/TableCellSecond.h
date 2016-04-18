@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,copy) NSArray *buttonName;
 @property (nonatomic,strong) NSMutableArray *currentButtonTitleArray;
+@property (nonatomic,strong) UIButton *button;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
