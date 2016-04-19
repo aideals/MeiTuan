@@ -59,12 +59,12 @@
 - (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger x = self.buttonName.count;
-    NSUInteger row;
+    
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
     
     
-    for (NSUInteger i = indexPath.row / 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
+    for (NSUInteger i = indexPath.row * 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
         [currentButtonIndex addObject:self.buttonName[i]];
     }
 }
@@ -75,9 +75,10 @@
 - (void)setButtonTitles:(NSArray *)array
 {
     NSString *title;
-    UIButton *button;
+    NSInteger tag;
+    tag = [self viewWithTag:tag];
     
-    button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    utton.titleLabel.font = [UIFont systemFontOfSize:13.0];
     title = [self.buttonName objectAtIndex:self.button.tag];
     [button setTitle:title forState:UIControlStateNormal];
     
