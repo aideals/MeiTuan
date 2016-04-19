@@ -62,9 +62,9 @@
     NSUInteger row;
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
-    row = x / 8 + (x % 8 > 0 ? 1 : 0);
     
-    for (NSUInteger i = row / 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
+    
+    for (NSUInteger i = indexPath.row / 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
         [currentButtonIndex addObject:self.buttonName[i]];
     }
 }
