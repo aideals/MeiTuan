@@ -75,10 +75,11 @@
 - (void)setButtonTitles:(NSArray *)array
 {
     NSString *title;
+    UIButton *button;
     
-    self.button.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    button.titleLabel.font = [UIFont systemFontOfSize:13.0];
     title = [self.buttonName objectAtIndex:self.button.tag];
-    [self.button setTitle:title forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
     
 }
 
