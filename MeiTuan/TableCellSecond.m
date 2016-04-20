@@ -34,11 +34,11 @@
    
     for (int i = 0; i < 2; i ++) {
         for (int j = 0; j < 4; j ++) {
-         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
-         button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
-         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
-         button.tag = i * 4 + j + ButtonTag;
-         [self.contentView addSubview:button];
+         self.button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
+         self.button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
+         [self.button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
+         self.button.tag = i * 4 + j + ButtonTag;
+         [self.contentView addSubview:self.button];
     
         }
       
@@ -58,13 +58,9 @@
 
 - (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger x = self.buttonName.count;
-    NSUInteger row;
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
-    row = x / 8 + (x % 8 > 0 ? 1 : 0);
-    
-    for (NSUInteger i = row / 8;i < self.buttonName.count && i < row * 8 + 8;i++) {
+    for (NSInteger i = indexPath.row * 8;i < self.buttonName.count && i < indexPath.row * 8 + 8;i++) {
         [currentButtonIndex addObject:self.buttonName[i]];
     }
 }
@@ -74,11 +70,16 @@
 
 - (void)setButtonTitles:(NSArray *)array
 {
-    NSString *title;
-    
-    self.button.titleLabel.font = [UIFont systemFontOfSize:13.0];
-    title = [self.buttonName objectAtIndex:self.button.tag];
-    [self.button setTitle:title forState:UIControlStateNormal];
+    for (int i = 0; i < 8; i ++) {
+        
+        NSInteger tag = i + ButtonTag;
+        UIButton *btn = (UIButton *)[self.contentView viewWithTag:tag];
+        if (i < array.count) {
+            btn.hidden = NO;
+        }
+        else
+            btn.hidden = YES;
+    }
     
 }
 
