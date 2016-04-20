@@ -48,25 +48,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    
     NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
     [self setButtonTitles:currentShowTitles];
     
-    return cell;
 }
 
-- (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
+- (NSMutableArray *)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
-    for (NSInteger i = indexPath.row * 8;i < self.buttonName.count && i < indexPath.row * 8 + 8;i++) {
+    for (NSInteger i = indexPath.row * 8;i < self.buttonName.count && i < indexPath.row * 8 + 8;i ++) {
         [currentButtonIndex addObject:self.buttonName[i]];
     }
+    return currentButtonIndex;
 }
-
-
-
 
 - (void)setButtonTitles:(NSArray *)array
 {
@@ -82,8 +77,6 @@
     }
     
 }
-
-
 
 - (IBAction)buttonClickAction:(id)sender
 {
