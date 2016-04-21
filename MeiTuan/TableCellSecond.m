@@ -23,8 +23,6 @@
 
 - (void)initLayout
 {
-    NSString *title;
-    
     self.buttonName = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5～10人餐",@"10人以上",@"代金劵",@"其它", @"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
    
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 45)];
@@ -34,11 +32,11 @@
    
     for (int i = 0; i < 2; i ++) {
         for (int j = 0; j < 4; j ++) {
-         self.button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
-         self.button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
-         [self.button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
-         self.button.tag = i * 4 + j + ButtonTag;
-         [self.contentView addSubview:self.button];
+         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
+         button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
+         [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
+         button.tag = i * 4 + ButtonTag;
+         [self.contentView addSubview:button];
     
         }
       
@@ -48,9 +46,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    UITableViewCell *cell;
     NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
     [self setButtonTitles:currentShowTitles];
     
+    return cell;
 }
 
 - (NSMutableArray *)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +69,10 @@
         
         NSInteger tag = i + ButtonTag;
         UIButton *btn = (UIButton *)[self.contentView viewWithTag:tag];
+        
         if (i < array.count) {
+            
+            [btn setTitle:array[i] forState:UIControlStateNormal];
             btn.hidden = NO;
         }
         else
