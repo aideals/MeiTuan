@@ -53,7 +53,7 @@
     return cell;
 }
 
-- (Void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
+- (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
