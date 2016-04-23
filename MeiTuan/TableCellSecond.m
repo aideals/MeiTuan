@@ -35,7 +35,6 @@
          UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ButtonX + (60 + ButtonX) * j, ButtonY + (30 + ButtonY) * i + 38, 65, 30)];
          button.backgroundColor = [UIColor colorWithRed:0.3 green:0.1 blue:0.4 alpha:0.2];
          [button addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchDown];
-         button.tag = i * 4 + ButtonTag;
          [self.contentView addSubview:button];
     
         }
