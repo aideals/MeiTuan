@@ -52,14 +52,14 @@
     return cell;
 }
 
-- (NSMutableArray *)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
+- (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
     
     for (NSInteger i = indexPath.row * 8;i < self.buttonName.count && i < indexPath.row * 8 + 8;i ++) {
         [currentButtonIndex addObject:self.buttonName[i]];
     }
-    return currentButtonIndex;
+    
 }
 
 - (void)setButtonTitles:(NSArray *)array
