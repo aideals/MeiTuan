@@ -16,9 +16,10 @@
 @interface TableCellSecond : UITableViewCell
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,copy) NSArray *buttonName;
-@property (nonatomic,strong) NSMutableArray *currentButtonTitleArray;
+
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
++ (void)setButtonName:(NSArray *)buttonName;
 
 @end

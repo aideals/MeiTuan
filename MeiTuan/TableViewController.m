@@ -36,6 +36,7 @@
 @property (nonatomic,strong) NSArray *array7;
 @property (nonatomic,copy) NSArray *name;
 @property (nonatomic,copy) NSArray *name1;
+@property (nonatomic,strong) NSArray *buttonName;
 @property (nonatomic,strong) UIButton *button;
 @end
 
@@ -123,6 +124,8 @@
     self.array6 = [[NSArray alloc] initWithObjects:@"只看免预约",@"节假日可用", nil];
     self.array7 = [[NSArray alloc] initWithObjects:@"用餐人数",@"餐厅服务",nil];
     self.name1 = [[NSArray alloc] initWithObjects:@"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
+
+    self.buttonName = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5～10人餐",@"10人以上",@"代金劵",@"其它", @"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
 }
 
 - (void)initTableView
@@ -339,8 +342,24 @@
              
          }
      }
+     
+    NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
     
-         return cell;
+    TableCellSecond *tcs = [[TableCellSecond alloc] init];
+    [tcs setButtonTitles:currentShowTitles];
+    
+    return cell;
+}
+
+- (NSMutableArray *)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = indexPath.row * 8; i < self.buttonName.count && i < indexPath.row * 8 + 8; i ++) {
+        [currentButtonIndex addObject:self.buttonName[i]];
+    }
+
+    return currentButtonIndex;
 }
 
 - (IBAction)back:(id)sender

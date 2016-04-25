@@ -23,8 +23,6 @@
 
 - (void)initLayout
 {
-    self.buttonName = [[NSArray alloc] initWithObjects:@"不限",@"单人餐",@"双人餐",@"3～4人餐",@"5～10人餐",@"10人以上",@"代金劵",@"其它", @"不限",@"优惠买单",@"在线点菜",@"外卖送餐",@"在线排队",nil];
-   
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 45)];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:17.5];
     self.titleLabel.numberOfLines = 2;
@@ -41,25 +39,6 @@
       
     }
     [self.contentView addSubview:self.titleLabel];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
-    NSArray *currentShowTitles = [self getCurrentShowButtonTitlesWithIndexPath:indexPath];
-    [self setButtonTitles:currentShowTitles];
-    
-    return cell;
-}
-
-- (void)getCurrentShowButtonTitlesWithIndexPath:(NSIndexPath *)indexPath
-{
-    NSMutableArray *currentButtonIndex = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = indexPath.row * 8;i < self.buttonName.count && i < indexPath.row * 8 + 8;i ++) {
-        [currentButtonIndex addObject:self.buttonName[i]];
-    }
-    
 }
 
 - (void)setButtonTitles:(NSArray *)array
